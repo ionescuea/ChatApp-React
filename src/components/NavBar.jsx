@@ -12,7 +12,7 @@ function NavBar(props) {
     };
 
     return (
-        <nav className="navbar fixed-top m-0 p-0">
+        <nav className="navbar fixed-top mb-0 p-0">
             <div className="container-fluid pr-0">
                 <a className="navbar-brand m-0" href="#HomePage" onClick={() => handlePageChange('HomePage')}>
                     <img src="/logo.jpg" alt="Logo" width="50" height="50"/>
