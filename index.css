@@ -1,12 +1,17 @@
 :root {
     --bg-purple: linear-gradient(to bottom, #D4ACFB 100%, #7E6695 100%);
-    --bg-light-green: linear-gradient(to bottom, #C3FFC2, #759974);
-    --bg-dark-green: linear-gradient(to bottom, #759974, #273327);
+    --bg-light-green: linear-gradient(to bottom, #C3FFC2 50%, #759974);
+    --bg-dark-green: linear-gradient(to bottom, #759974 50%, #273327);
     --bg-light-silver: #D9D9D9;
     --text-color1: #8151B0;
+    /* background: var(--bg-purple); */
+}
+
+body {
     background: var(--bg-purple);
 }
 
+/* Navbar */
 .navbar {
     background: #8151B0;
 }
@@ -34,3 +39,83 @@
     background: var(--bg-light-silver);
     color: var(--text-color1);
 }
+
+/* HomePage */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    padding-top: 50px;
+  }
+  
+  .square {
+    position: relative;
+    width: 515px;
+    height: 424px;
+    border-radius: 47px;
+    background: var(--bg-light-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 238px;
+    height: 239px;
+    margin: 0 auto;
+  }
+  
+  .top-left-button {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 185px;
+    height: 42px;
+    background-color: var(--bg-light-silver);
+    color: var(--text-color1);
+    border: none;
+    border-radius: 47px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .bottom-right-button {
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+    width: 185px;
+    height: 42px;
+    background-color: var(--bg-light-silver);
+    color: var(--text-color1);
+    border: none;
+    border-radius: 47px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .oval {
+    margin-top: 50px;
+    width: 515px;
+    height: 56px;
+    background: var(--bg-dark-green);
+    border-radius: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .oval-button {
+    background-color: transparent;
+    color: var(--bg-light-silver);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
