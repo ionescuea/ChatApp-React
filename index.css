@@ -32,7 +32,7 @@ body {
     font-size: 12px;
     font-weight: bold;
     border-radius: 5px;
-    
+
 }
 
 .navbar button:hover {
@@ -48,9 +48,9 @@ body {
     height: 100vh;
     justify-content: center;
     padding-top: 50px;
-  }
-  
-  .square {
+}
+
+.square {
     position: relative;
     width: 515px;
     height: 424px;
@@ -59,15 +59,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .logo {
+}
+
+.logo {
     width: 238px;
     height: 239px;
     margin: 0 auto;
-  }
-  
-  .top-left-button {
+}
+
+.top-left-button {
     position: absolute;
     top: 100px;
     left: 50px;
@@ -81,9 +81,15 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-  }
-  
-  .bottom-right-button {
+}
+
+.top-left-button:hover {
+    background: var(--text-color1);
+    color: var(--bg-light-silver);
+    border: 2px solid var(--bg-light-silver);
+}
+
+.bottom-right-button {
     position: absolute;
     bottom: 100px;
     right: 50px;
@@ -91,15 +97,21 @@ body {
     height: 42px;
     background-color: var(--bg-light-silver);
     color: var(--text-color1);
-    border: none;
+    border: var(--bg-light-silver);
     border-radius: 47px;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-  }
+}
 
-  .oval {
+.bottom-right-button:hover {
+    background: var(--text-color1);
+    color: var(--bg-light-silver);
+    border: 2px solid var(--bg-light-silver);
+}
+
+.oval {
     margin-top: 50px;
     width: 515px;
     height: 56px;
@@ -108,9 +120,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .oval-button {
+    transition: box-shadow 0.3s ease;
+}
+
+.oval:hover {
+    box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
+}
+
+.oval-button {
     background-color: transparent;
     color: var(--bg-light-silver);
     border: none;
@@ -118,4 +135,49 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-  }
+}
+
+.oval-button:hover {
+    color: var(--text-color1);
+}
+
+/* Register */
+.register-title {
+    color: var(--text-color1);
+    font-size: 36px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.mb-3 input {
+    width: 433px;
+    height: 51px;
+    background: var(--bg-light-silver);
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: regular;
+}
+
+.mb-3 input::placeholder {
+    color: var(--text-color1);
+}
+
+.form-text {
+    color: var(--text-color1);
+}
+
+.register-button {
+    margin-top: 25px;
+    background: var(--bg-light-silver);
+    color: var(--text-color1);
+    border: none;
+    border-radius: 47px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.register-button:hover {
+    background: var(--text-color1);
+    color: var(--bg-light-silver);
+}
