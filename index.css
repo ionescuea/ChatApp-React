@@ -181,3 +181,83 @@ body {
     background: var(--text-color1);
     color: var(--bg-light-silver);
 }
+
+/* Chat */
+#chat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.list-group {
+    background: var(--bg-light-green);
+    font-size: 16px;
+    font-weight: bold;
+    height: 590px;
+    width: 359px;
+}
+
+.list-group-item {
+    background: var(--bg-light-silver);
+    color: var(--text-color1);
+    margin: 15px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.message-old {
+    height: 440px;
+    width: 850px;
+    border-radius: 47px;
+    background: var(--bg-light-green);
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color1);
+}
+
+form {
+    background: var(--bg-light-green);
+    padding: 25px;
+    border-radius: 47px;
+    width: 850px;
+}
+
+form input {
+    height: 60px;
+    background: var(--bg-light-silver);
+    font-size: 14px;
+    font-weight: regular;
+}
+
+#inputMessage {
+    background: var(--bg-light-silver);
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color1);
+    border-radius: 47px;
+    width: 675px;
+    padding-left: 20px;
+}
+
+#inputMessage::placeholder {
+    color: var(--text-color1);
+}
+
+.btn-send {
+    background: var(--bg-light-silver);
+    color: var(--text-color1);
+    border: none;
+    border-radius: 47px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 90px;
+    height: 60px;
+}
+
+.btn-send:hover {
+    background: var(--text-color1);
+    color: var(--bg-light-silver);
+}
