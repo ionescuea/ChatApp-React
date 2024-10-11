@@ -81,12 +81,14 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: box-shadow 0.3s ease;
 }
 
 .top-left-button:hover {
     background: var(--text-color1);
     color: var(--bg-light-silver);
     border: 2px solid var(--bg-light-silver);
+    box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
 }
 
 .bottom-right-button {
@@ -103,12 +105,14 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: box-shadow 0.3s ease;
 }
 
 .bottom-right-button:hover {
     background: var(--text-color1);
     color: var(--bg-light-silver);
     border: 2px solid var(--bg-light-silver);
+    box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
 }
 
 .oval {
@@ -142,6 +146,17 @@ body {
 }
 
 /* Register */
+.square-register {
+    position: relative;
+    width: 515px;
+    height: 384px;
+    border-radius: 47px;
+    background: var(--bg-light-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .register-title {
     color: var(--text-color1);
     font-size: 36px;
@@ -150,7 +165,7 @@ body {
 }
 
 .mb-3 input {
-    width: 433px;
+    width: 465px;
     height: 51px;
     background: var(--bg-light-silver);
     border: none;
@@ -178,6 +193,40 @@ body {
 }
 
 .register-button:hover {
+    background: var(--text-color1);
+    color: var(--bg-light-silver);
+}
+
+/* Login */
+.square-login {
+    position: relative;
+    width: 515px;
+    height: 317px;
+    border-radius: 47px;
+    background: var(--bg-light-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-title {
+    color: var(--text-color1);
+    font-size: 36px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.login-button {
+    margin-top: 25px;
+    background: var(--bg-light-silver);
+    color: var(--text-color1);
+    border: none;
+    border-radius: 47px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-button:hover {
     background: var(--text-color1);
     color: var(--bg-light-silver);
 }
