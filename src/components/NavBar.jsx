@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function NavBar(props) {
-    const [setCurrentPage] = useState('HomePage');
+    const [currentPage, setCurrentPage] = useState('HomePage');
 
     const handlePageChange = (page) => {
         props.handlePageChange(page);
