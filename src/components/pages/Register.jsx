@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Register = () => (
   <section id="register">
     <div className="container">
-      <div className="square">
+      <div className="square-register">
         <form>
           <h1 className="register-title d-grid col-4 mx-auto">Register</h1>
           <div className="mb-3">
