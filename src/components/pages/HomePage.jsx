@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 
 const HomePage = () => (
@@ -6,14 +7,18 @@ const HomePage = () => (
         <div className="container">
             <div className="square">
                 <img src="logo.jpg" alt="Logo" className="logo"></img>
-                <button className="top-left-button active">Register</button>
-                <button className="bottom-right-button active">Login</button>
+                <Link to="/register">
+                    <button className="top-left-button active">Register</button>
+                </Link>
+                <Link to="/login">
+                    <button className="bottom-right-button active">Login</button>
+                </Link>
             </div>
             <div className="oval">
                 <button className="oval-button">Admin center</button>
             </div>
         </div>
-    </section >
+    </section>
 );
 
 
