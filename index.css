@@ -231,6 +231,22 @@ body {
     color: var(--bg-light-silver);
 }
 
+p {
+    color: var(--text-color1);
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+    color: var(--bg-light-silver);
+}
+
+a:hover {
+    color: var(--text-color1);
+}
+
 /* Chat */
 #chat {
     display: flex;
