@@ -17,7 +17,7 @@ function App() {
     <Router>
       <NavBar currentPage={window.location.pathname} handlePageChange={handlePageChange} />
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path='/HomePage' element={<HomePage />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/chat' element={<Chat />} />
