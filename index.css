@@ -72,23 +72,23 @@ body {
     top: 100px;
     left: 50px;
     width: 185px;
-    height: 42px;
     background-color: var(--bg-light-silver);
     color: var(--text-color1);
-    border: none;
+    border: outset var(--text-color1);
     border-radius: 47px;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 17px;
     font-weight: bold;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
+    vertical-align: middle;
 }
 
 .top-left-button:hover {
     background: var(--text-color1);
     color: var(--bg-light-silver);
     border: 2px solid var(--bg-light-silver);
-    box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
+    box-shadow: 20px 10px 10px rgba(36, 36, 36, 0.5);
 }
 
 .bottom-right-button {
@@ -96,16 +96,16 @@ body {
     bottom: 100px;
     right: 50px;
     width: 185px;
-    height: 42px;
     background-color: var(--bg-light-silver);
     color: var(--text-color1);
-    border: var(--bg-light-silver);
+    border: outset var(--text-color1);
     border-radius: 47px;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 17px;
     font-weight: bold;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
+    vertical-align: middle;
 }
 
 .bottom-right-button:hover {
