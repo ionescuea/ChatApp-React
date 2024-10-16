@@ -162,6 +162,7 @@ body {
     font-size: 36px;
     font-weight: bold;
     font-style: italic;
+    text-align: center;
 }
 
 .mb-3 input {
@@ -197,6 +198,37 @@ body {
     color: var(--bg-light-silver);
 }
 
+.password-toggle {
+    position: absolute;
+    right: 40px;
+    top: 48%;
+    transform: translateY(-50%);
+    color: var(--text-color1);
+    padding-bottom: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+.repassword-toggle {
+    position: absolute;
+    right: 15px;
+    top: 62%;
+    transform: translateY(-50%);
+    color: var(--text-color1);
+    padding-bottom: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.text-danger {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 /* Login */
 .square-login {
     position: relative;
@@ -214,6 +246,7 @@ body {
     font-size: 36px;
     font-weight: bold;
     font-style: italic;
+    text-align: center;
 }
 
 .login-button {
@@ -245,6 +278,15 @@ a {
 
 a:hover {
     color: var(--text-color1);
+}
+
+.text-danger-danger {
+    color: #da4448;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Chat */
