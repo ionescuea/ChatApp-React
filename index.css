@@ -380,28 +380,18 @@ form input {
     padding-top: 20px;
 }
 
-#adminPage h1 {
-    color: var(--bg-light-silver);
-    font-size: 26px;
-    font-weight: bold;
-    background: var(--bg-dark-green);
-    border-radius: 47px;
-    padding: 10px 80px;
-    margin-top: 80px;
-    margin-bottom: 20px;
-    
-}
-
 .admin {
     background: var(--bg-light-green);
     border-radius: 47px;
     padding-top: 0px;
+    height: 500px;
 }
 
 .admin-row {
-    padding: 0px;
-    margin: 0px;
+    justify-content: center;
+    align-items: center;
 }
+
 .admin-card {
     background: var(--bg-light-silver);
     color: var(--text-color1);
@@ -411,5 +401,25 @@ form input {
     width: 275px;
     height: 30px;
     margin: 15px;
-    margin-bottom: 0px;
+}
+
+.form-check {
+    margin-left: 50px;
+}
+
+.form-check-label {
+    color: var(--text-color1);
+    font-size: 16px;
+    font-weight: bold;
+    align-content: center;
+}
+
+.btn-danger {
+    background: var(--bg-light-silver);
+    color: var(--text-color1);
+    border: none;
+    border-radius: 47px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 50px;
 }
