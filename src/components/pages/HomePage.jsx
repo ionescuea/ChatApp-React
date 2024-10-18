@@ -14,12 +14,8 @@ const HomePage = () => (
                     <button className="bottom-right-button active">Login</button>
                 </Link>
             </div>
-            <div className="oval">
-                <button className="oval-button">Admin center</button>
-            </div>
         </div>
     </section>
 );
-
 
 export default HomePage;

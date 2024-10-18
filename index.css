@@ -24,6 +24,21 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-style: italic;
+    align-items: center;
+}
+
+.nav-pills {
+    background: var(--bg-light-green);
+    color: var(--text-color1);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 47px;
+    margin: 5px
+}
+
+.admin-page-placeholder {
+    width: 100px;
+    display: inline-block;
 }
 
 .navbar button {
@@ -113,36 +128,6 @@ body {
     color: var(--bg-light-silver);
     border: 2px solid var(--bg-light-silver);
     box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
-}
-
-.oval {
-    margin-top: 50px;
-    width: 515px;
-    height: 56px;
-    background: var(--bg-dark-green);
-    border-radius: 47px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: box-shadow 0.3s ease;
-}
-
-.oval:hover {
-    box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
-}
-
-.oval-button {
-    background-color: transparent;
-    color: var(--bg-light-silver);
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.oval-button:hover {
-    color: var(--text-color1);
 }
 
 /* Register */
