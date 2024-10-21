@@ -4,9 +4,11 @@ import { getStoredUsers } from '/utilities/usersLS.js';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { PropTypes } from 'prop-types';
+
 
 // Login component
-function Login() {
+function Login({ onLogin }) {
   // Initialize navigation hook
   const navigate = useNavigate();
 
@@ -32,11 +34,12 @@ function Login() {
 
     // If user is found, navigate to chat page and reset failed attempts counter
     if (user) {
-      navigate('/chat');
+      onLogin(user.role === 'admin');
+      navigate('/chat', { state: { isAdmin: user.role === 'admin' } });
       setFailedAttempts(0); // Reset failed attempts counter on successful login
     } else {
       // Increment failed attempts counter
-      setFailedAttempts(failedAttempts + 1);
+      setFailedAttempts((prevFailedAttempts) => prevFailedAttempts + 1);
 
       // If number of failed attempts is less than 2, display error message
       if (failedAttempts < 2) {
@@ -131,6 +134,10 @@ function Login() {
     </section>
   );
 }
+
+Login.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+};
 
 // Export the Login component
 export default Login;
