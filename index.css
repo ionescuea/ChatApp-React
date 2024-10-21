@@ -14,6 +14,7 @@ body {
 /* Navbar */
 .navbar {
     background: #8151B0;
+    width: 1116px;
 }
 
 .navbar-title {
@@ -27,18 +28,16 @@ body {
     align-items: center;
 }
 
-.nav-pills {
+.nav, nav-pills {
     background: var(--bg-light-green);
     color: var(--text-color1);
     font-size: 16px;
     font-weight: bold;
     border-radius: 47px;
-    margin: 5px
-}
-
-.admin-page-placeholder {
-    width: 100px;
-    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    width: 125px;
+    height: 30px;
 }
 
 .navbar button {
@@ -47,7 +46,6 @@ body {
     font-size: 12px;
     font-weight: bold;
     border-radius: 5px;
-
 }
 
 .navbar button:hover {
@@ -194,6 +192,7 @@ body {
     font-weight: bold;
     opacity: 0.5;
 }
+
 .repassword-toggle {
     position: absolute;
     right: 15px;
