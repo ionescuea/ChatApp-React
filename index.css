@@ -28,7 +28,19 @@ body {
     align-items: center;
 }
 
-.nav, nav-pills {
+.navbar-subtitle {
+    font-size: 20px;
+    background: var(--bg-light-green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    align-items: center;
+}
+
+.nav,
+nav-pills {
     background: var(--bg-light-green);
     color: var(--text-color1);
     font-size: 16px;
@@ -68,10 +80,42 @@ body {
     width: 515px;
     height: 424px;
     border-radius: 47px;
-    background: var(--bg-light-green);
+    /* background: var(--bg-light-green); */
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to bottom, #C3FFC2 50%, #759974 100%);
+    /* Full height of the viewport */
+    position: relative;
+    /* Positioning context for pseudo-elements */
+    overflow: hidden;
+    /* Prevent scrollbars */
+}
+
+.square::before {
+    content: "";
+    position: absolute;
+    top: 0; /* Start at the top */
+    left: 0; /* Start at the left */
+    width: 200%; /* Make it wider than the body */
+    height: 200%; /* Make it taller than the body */
+    background: linear-gradient(
+        135deg, /* Diagonal line */
+        transparent 40%, /* Before the line */
+        rgba(255, 255, 255, 0.5) 45%, /* The thick shine line start */
+        rgba(255, 255, 255, 0.5) 55%, /* The thick shine line end */
+        transparent 60% /* Back to transparency */
+    );
+    animation: shine 4s linear infinite; /* Shine animation */
+}
+
+@keyframes shine {
+    0% {
+        transform: translate(-100%, -100%); /* Start position off-screen */
+    }
+    100% {
+        transform: translate(100%, 100%); /* End position off-screen */
+    }
 }
 
 .logo {
