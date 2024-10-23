@@ -34,6 +34,8 @@ function Login({ onLogin }) {
 
     // If user is found, navigate to chat page and reset failed attempts counter
     if (user) {
+      localStorage.setItem('currentUser', user.username); // Store username in localStorage
+      localStorage.setItem('isAdmin', user.role === 'admin');
       onLogin(user.role === 'admin');
       navigate('/chat', { state: { isAdmin: user.role === 'admin' } });
       setFailedAttempts(0); // Reset failed attempts counter on successful login
@@ -53,8 +55,8 @@ function Login({ onLogin }) {
         // Wait for 3 seconds before redirecting to register page
         setTimeout(() => {
           // Remove user from local storage
-          const updatedUsers = storedUsers.filter((user) => user.email !== email);
-          localStorage.setItem('users', JSON.stringify(updatedUsers));
+          // const updatedUsers = storedUsers.filter((user) => user.email !== email);
+          // localStorage.setItem('users', JSON.stringify(updatedUsers));
 
           // Navigate to register page
           navigate('/register');
