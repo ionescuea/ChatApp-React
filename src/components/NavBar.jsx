@@ -15,6 +15,15 @@ function NavBar(props) {
         setIsAdmin(localStorage.getItem('isAdmin') === 'true'); // Ensure the isAdmin state is accurate
     }, [location.pathname]);
 
+    // Redirect to HomePage if not logged in
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem('isAdmin');
+        if (!isLoggedIn) {
+            navigate('/HomePage');
+        }
+    }, []);
+
+      // Handle page change
     const handlePageChange = (page) => {
         setCurrentPage(page);
         props.handlePageChange(page);
@@ -83,9 +92,11 @@ function NavBar(props) {
     );
 }
 
+// Define prop types for the NavBar component
 NavBar.propTypes = {
     handlePageChange: PropTypes.func,
     isAdmin: PropTypes.bool.isRequired,
 };
 
+// Export the NavBar component as the default export
 export default NavBar;
