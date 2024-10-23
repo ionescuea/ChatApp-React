@@ -1,10 +1,10 @@
 // Define an array of original users with user information
 const originalUsers = [
-    { user: 'Anna Smith', email: 'anna@example.com', password: 'apple1', role: 'admin' },
-    { user: 'John Doe', email: 'john@example.com', password: 'beer7', role: 'user' },
-    { user: 'Ross Charlie', email: 'ross@example.com', password: 'root8', role: 'user' },
-    { user: 'Mike Smith', email: 'mike@example.com', password: 'ginger6', role: 'user' },
-    { user: 'Helena Johnson', email: 'helena@example.com', password: 'grape3', role: 'user' }
+    { username: 'anasmith', email: 'anna@example.com', password: 'apple1', role: 'admin' },
+    { username: 'johnd', email: 'john@example.com', password: 'beer7', role: 'user' },
+    { username: 'rossddd', email: 'ross@example.com', password: 'root8', role: 'user' },
+    { username: 'mikyie', email: 'mike@example.com', password: 'ginger6', role: 'user' },
+    { username: 'helllena', email: 'helena@example.com', password: 'grape3', role: 'user' }
 ];
 
 // Function to initialize localStorage with original users if not already present

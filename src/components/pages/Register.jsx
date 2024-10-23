@@ -62,13 +62,14 @@ const Register = () => {
     event.preventDefault();
     if (!userExists && password === rePassword) {
       const newUser = {
-        email,
         username,
+        email,
         password,
         role: 'user',
       };
       console.log('Adding new user to local storage:', newUser);
       addStoredUser(newUser);
+      localStorage.setItem('currentUser', username);
       navigate('/login'); // Navigate to login page after successful registration
     }
   };

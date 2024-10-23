@@ -16,7 +16,7 @@ function AdminPage() {
         const admins = storedUsers.filter((user) => user.role === 'admin');
 
         // Prevent removing the last admin
-        if (admins.length === 1 && admins[0].user === storedUsers[index].user && !checked) {
+        if (admins.length === 1 && admins[0].username === storedUsers[index].username && !checked) {
             alert('At least one user must be an admin.');
             return;
         }
@@ -44,7 +44,7 @@ function AdminPage() {
                     {storedUsers.map((user, index) => (
                         <div key={index} className="admin-row row gx-5">
                             <div className="admin-card col-lg-4 col-sm-12">
-                                <p>{user.user}</p>
+                                <p>{user.username}</p>
                             </div>
                             <div className="admin-card col-lg-4 col-sm-12">
                                 <p>{user.email}</p>
