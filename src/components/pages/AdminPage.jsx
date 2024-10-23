@@ -1,55 +1,46 @@
-// Importing the necessary dependencies
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { getStoredUsers } from '/utilities/usersLS.js';
 import { useState, useEffect } from 'react';
+import { getStoredUsers } from '/utilities/usersLS.js';
 
-
-// Functional component that represents the AdminPage
 function AdminPage() {
-
-    // State variable to store the users retrieved from local storage
     const [storedUsers, setStoredUsers] = useState(getStoredUsers());
 
-
-    // useEffect hook to update the storedUsers state when the component mounts
     useEffect(() => {
-        setStoredUsers(getStoredUsers());
+        // When the page loads, ensure that we load the most recent users from localStorage
+        const usersFromStorage = getStoredUsers();
+        if (usersFromStorage) {
+            setStoredUsers(usersFromStorage);
+        }
     }, []);
 
+    const handleRoleChange = (index, checked) => {
+        const admins = storedUsers.filter((user) => user.role === 'admin');
 
-    // Function to handle the removal of a user
+        // Prevent removing the last admin
+        if (admins.length === 1 && admins[0].user === storedUsers[index].user && !checked) {
+            alert('At least one user must be an admin.');
+            return;
+        }
+
+        // Update the user's role and sync with localStorage
+        const updatedUsers = storedUsers.map((user, i) => 
+            i === index ? { ...user, role: checked ? 'admin' : 'user' } : user
+        );
+
+        // Save the updated users list in state and localStorage
+        setStoredUsers(updatedUsers);
+        localStorage.setItem('users', JSON.stringify(updatedUsers));
+    };
+
     const handleRemoveUser = (index) => {
-        // Filter the storedUsers array to remove the user at the given index
-        const updatedUsers = storedUsers.filter((user, i) => i !== index);
-        // Update the storedUsers state with the updated array
+        const updatedUsers = storedUsers.filter((_, i) => i !== index);
         setStoredUsers(updatedUsers);
-        // Update the local storage with the updated array
         localStorage.setItem('users', JSON.stringify(updatedUsers));
     };
 
-
-    // Function to handle the change of a user's role
-    const handleRoleChange = (index, role) => {
-        // Map the storedUsers array to update the role of the user at the given index
-        const updatedUsers = storedUsers.map((user, i) => {
-            if (i === index) {
-                return { ...user, role: role };
-            }
-            return user;
-        });
-        // Update the storedUsers state with the updated array
-        setStoredUsers(updatedUsers);
-        // Update the local storage with the updated array
-        localStorage.setItem('users', JSON.stringify(updatedUsers));
-    };
-
-
-    // Render the AdminPage component
     return (
         <section id="adminPage">
             <div className="admin container">
                 <div className="admin-row row gx-5">
-                    {/* Map the storedUsers array to render a row for each user */}
                     {storedUsers.map((user, index) => (
                         <div key={index} className="admin-row row gx-5">
                             <div className="admin-card col-lg-4 col-sm-12">
@@ -66,7 +57,7 @@ function AdminPage() {
                                         role="switch"
                                         id={`role-switch-${index}`}
                                         checked={user.role === 'admin'}
-                                        onChange={(e) => handleRoleChange(index, e.target.checked ? 'admin' : 'user')}
+                                        onChange={(e) => handleRoleChange(index, e.target.checked)}
                                     />
                                     <label className="form-check-label" htmlFor={`role-switch-${index}`}>
                                         {user.role === 'admin' ? 'Admin' : 'User'}
@@ -74,10 +65,7 @@ function AdminPage() {
                                 </div>
                             </div>
                             <div className="col-lg-2 col-sm-12">
-                                <button
-                                    className="btn btn-danger"
-                                    onClick={() => handleRemoveUser(index)}
-                                >
+                                <button className="btn btn-danger" onClick={() => handleRemoveUser(index)}>
                                     Remove
                                 </button>
                             </div>
@@ -89,6 +77,4 @@ function AdminPage() {
     );
 }
 
-
-// Export the AdminPage component
 export default AdminPage;
