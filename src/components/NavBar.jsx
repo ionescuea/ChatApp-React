@@ -4,15 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function NavBar(props) {
-    // eslint-disable-next-line no-unused-vars
     const [currentPage, setCurrentPage] = useState('HomePage');
-    const [isAdmin, setIsAdmin] = useState(localStorage.getItem('isAdmin') === 'true');
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('currentUser') !== null);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
         setCurrentPage(location.pathname);
-        setIsAdmin(localStorage.getItem('isAdmin') === 'true');
+        setIsLoggedIn(localStorage.getItem('currentUser') !== null);
     }, [location.pathname]);
 
     const handlePageChange = (page) => {
@@ -23,7 +22,7 @@ function NavBar(props) {
     const handleLogout = () => {
         localStorage.removeItem('currentUser');
         localStorage.removeItem('isAdmin');
-        setIsAdmin(false);
+        setIsLoggedIn(false);
         navigate('/HomePage');
     };
 
@@ -38,12 +37,12 @@ function NavBar(props) {
                     </div>
 
                     <div className="adminChat col-2 d-flex justify-content-center">
-                        {isAdmin && location.pathname !== '/AdminPage' && (
+                        {(isLoggedIn && localStorage.getItem('isAdmin') === 'true') && location.pathname !== '/AdminPage' && (
                             <Link to="/AdminPage" className="nav nav-pills nav-link me-2" onClick={() => handlePageChange('AdminPage')}>
                                 Admin Page
                             </Link>
                         )}
-                        {location.pathname === '/AdminPage' && (
+                        {(isLoggedIn && (location.pathname === '/HomePage' || (localStorage.getItem('isAdmin') === 'true' && location.pathname === '/AdminPage'))) && (
                             <Link to="/chat" className="nav nav-pills nav-link" onClick={() => handlePageChange('Chat')}>
                                 Chat Page
                             </Link>
@@ -57,7 +56,7 @@ function NavBar(props) {
                     </div>
 
                     <div className="col-2">
-                        {(location.pathname !== '/login' && location.pathname !== '/register' && isAdmin) && (
+                        {(location.pathname !== '/login' && location.pathname !== '/register' && isLoggedIn) && (
                             <h1 className="navbar-subtitle">
                                 Hello, {localStorage.getItem('currentUser')}
                             </h1>
@@ -65,7 +64,7 @@ function NavBar(props) {
                     </div>
 
                     <div className="col-2">
-                        {(location.pathname !== '/login' && location.pathname !== '/register' && isAdmin) && (
+                        {(location.pathname !== '/login' && location.pathname !== '/register' && isLoggedIn) && (
                             <button type="button" className="btn btn-outline-light" onClick={handleLogout}>
                                 Log out
                             </button>
