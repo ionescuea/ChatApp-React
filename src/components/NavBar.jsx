@@ -48,53 +48,53 @@ function NavBar(props) {
 
     return (
         <nav className="navbar fixed-top mb-0 p-0 w-100">
-        <div className="container-fluid w-100 h-100 m-0 p-0">
-            <div className="row flex-nowrap w-100 align-items-center text-center justify-content-center">
-                <div className="col-2 align-items-left">
-                    <Link to="/HomePage" className="navbar-brand m-0" onClick={() => handlePageChange('HomePage')}>
-                        <img src="/logo.jpg" alt="Logo" width="50" height="50" />
-                    </Link>
-                </div>
-                
-                <div className="adminChat col-2 d-flex justify-content-center">
-                    {/* Render the Admin Page link if the user is an admin */}
-                    {isAdmin && (
-                        <Link to="/AdminPage" className="nav nav-pills nav-link me-2" onClick={() => handlePageChange('AdminPage')}>
-                            Admin Page
+            <div className="container-fluid w-100 h-100 m-0 p-0">
+                <div className="row flex-nowrap w-100 align-items-center text-center justify-content-center">
+                    <div className="col-2 align-items-left">
+                        <Link to="/HomePage" className="navbar-brand m-0" onClick={() => handlePageChange('HomePage')}>
+                            <img src="/logo.jpg" alt="Logo" width="50" height="50" />
                         </Link>
-                    )}
-                    {/* Render the Chat Page link if the user is on the Admin Page */}
-                    {location.pathname === '/AdminPage' && (
-                        <Link to="/chat" className="nav nav-pills nav-link" onClick={() => handlePageChange('Chat')}>
-                            Chat Page
+                    </div>
+
+                    <div className="adminChat col-2 d-flex justify-content-center">
+                        {/* Render the Admin Page link if the user is an admin and not on the Admin Page */}
+                        {isAdmin && location.pathname !== '/AdminPage' && (
+                            <Link to="/AdminPage" className="nav nav-pills nav-link me-2" onClick={() => handlePageChange('AdminPage')}>
+                                Admin Page
+                            </Link>
+                        )}
+                        {/* Render the Chat Page link if the user is on the Admin Page */}
+                        {location.pathname === '/AdminPage' && (
+                            <Link to="/chat" className="nav nav-pills nav-link" onClick={() => handlePageChange('Chat')}>
+                                Chat Page
+                            </Link>
+                        )}
+                    </div>
+
+                    <div className="col-4">
+                        <Link to="/HomePage" className="navbar-title mx-auto" onClick={() => handlePageChange('HomePage')}>
+                            ChatApp
                         </Link>
-                    )}
-                </div>
+                    </div>
 
-                <div className="col-4">
-                    <Link to="/HomePage" className="navbar-title mx-auto" onClick={() => handlePageChange('HomePage')}>
-                        ChatApp
-                    </Link>
-                </div>
-
-                <div className="col-2">
-                {location.pathname !== '/HomePage' && location.pathname !== '/login' && location.pathname !== '/register' && (
+                    <div className="col-2">
+                        {location.pathname !== '/HomePage' && location.pathname !== '/login' && location.pathname !== '/register' && (
                             <h1 className="navbar-subtitle">Hello, {username}</h1>
                         )}
-                </div>
+                    </div>
 
-                <div className="col-2">
-                    {/* Conditionally render the logout button */}
-                    {!shouldHideLogoutButton && (
-                        <button type="button" className="btn btn-outline-light" onClick={handleLogout}>
-                            Log out
-                        </button>
-                    )}
+                    <div className="col-2">
+                        {/* Conditionally render the logout button */}
+                        {!shouldHideLogoutButton && (
+                            <button type="button" className="btn btn-outline-light" onClick={handleLogout}>
+                                Log out
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-);
+        </nav>
+    );
 }
 
 // Define prop types for the NavBar component
