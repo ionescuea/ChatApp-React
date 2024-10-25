@@ -6,45 +6,26 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 function NavBar(props) {
     // eslint-disable-next-line no-unused-vars
     const [currentPage, setCurrentPage] = useState('HomePage');
-    const [isAdmin, setIsAdmin] = useState(localStorage.getItem('isAdmin') === 'true'); // Check from localStorage initially
-    const [username, setUsername] = useState('');
-    const location = useLocation(); // Hook to get current page route
-    const navigate = useNavigate();  // Hook to navigate programmatically
+    const [isAdmin, setIsAdmin] = useState(localStorage.getItem('isAdmin') === 'true');
+    const location = useLocation();
+    const navigate = useNavigate();
 
-    // Update the current page based on the location
     useEffect(() => {
         setCurrentPage(location.pathname);
-        setIsAdmin(localStorage.getItem('isAdmin') === 'true'); // Ensure the isAdmin state is accurate
-        const storedUsername = localStorage.getItem('currentUser'); // Get username from localStorage
-        setUsername(storedUsername || '');
+        setIsAdmin(localStorage.getItem('isAdmin') === 'true');
     }, [location.pathname]);
 
-    // Redirect to HomePage if not logged in
-    useEffect(() => {
-        const isLoggedIn = localStorage.getItem('isAdmin');
-        if (!isLoggedIn) {
-            navigate('/HomePage');
-        }
-    }, []);
-
-    // Handle page change
     const handlePageChange = (page) => {
         setCurrentPage(page);
         props.handlePageChange(page);
     };
 
-    // Handle logout functionality
     const handleLogout = () => {
-        // Clear user session data from localStorage
         localStorage.removeItem('currentUser');
         localStorage.removeItem('isAdmin');
-
-        // Redirect to login page
+        setIsAdmin(false);
         navigate('/HomePage');
     };
-
-    // Check if the current page is home, login, or register
-    const shouldHideLogoutButton = ['/HomePage', '/login', '/register'].includes(location.pathname);
 
     return (
         <nav className="navbar fixed-top mb-0 p-0 w-100">
@@ -57,13 +38,11 @@ function NavBar(props) {
                     </div>
 
                     <div className="adminChat col-2 d-flex justify-content-center">
-                        {/* Render the Admin Page link if the user is an admin and not on the Admin Page */}
                         {isAdmin && location.pathname !== '/AdminPage' && (
                             <Link to="/AdminPage" className="nav nav-pills nav-link me-2" onClick={() => handlePageChange('AdminPage')}>
                                 Admin Page
                             </Link>
                         )}
-                        {/* Render the Chat Page link if the user is on the Admin Page */}
                         {location.pathname === '/AdminPage' && (
                             <Link to="/chat" className="nav nav-pills nav-link" onClick={() => handlePageChange('Chat')}>
                                 Chat Page
@@ -78,14 +57,15 @@ function NavBar(props) {
                     </div>
 
                     <div className="col-2">
-                        {location.pathname !== '/HomePage' && location.pathname !== '/login' && location.pathname !== '/register' && (
-                            <h1 className="navbar-subtitle">Hello, {username}</h1>
+                        {(location.pathname !== '/login' && location.pathname !== '/register' && isAdmin) && (
+                            <h1 className="navbar-subtitle">
+                                Hello, {localStorage.getItem('currentUser')}
+                            </h1>
                         )}
                     </div>
 
                     <div className="col-2">
-                        {/* Conditionally render the logout button */}
-                        {!shouldHideLogoutButton && (
+                        {(location.pathname !== '/login' && location.pathname !== '/register' && isAdmin) && (
                             <button type="button" className="btn btn-outline-light" onClick={handleLogout}>
                                 Log out
                             </button>
@@ -97,11 +77,8 @@ function NavBar(props) {
     );
 }
 
-// Define prop types for the NavBar component
 NavBar.propTypes = {
     handlePageChange: PropTypes.func,
-    isAdmin: PropTypes.bool.isRequired,
 };
 
-// Export the NavBar component as the default export
 export default NavBar;
