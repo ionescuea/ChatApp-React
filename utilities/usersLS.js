@@ -16,7 +16,7 @@ function initializeStoredUsers() {
 
 // Export a function to retrieve the stored users from localStorage
 export function getStoredUsers() {
-    initializeStoredUsers();  // Initialize users if not present
+    initializeStoredUsers(); // Initialize users if not present
     const storedUsers = JSON.parse(localStorage.getItem('users'));
     return storedUsers || [];
 }
@@ -26,4 +26,21 @@ export function addStoredUser(newUser) {
     const storedUsers = getStoredUsers();
     storedUsers.push(newUser);
     localStorage.setItem('users', JSON.stringify(storedUsers));
+}
+
+// Export a function to update an existing user in the stored users
+export function updateStoredUser(updatedUser) {
+    const storedUsers = getStoredUsers();
+    const index = storedUsers.findIndex((user) => user.username === updatedUser.username);
+    if (index !== -1) {
+        storedUsers[index] = updatedUser;
+        localStorage.setItem('users', JSON.stringify(storedUsers));
+    }
+}
+
+// Export a function to remove an existing user from the stored users
+export function removeStoredUser(username) {
+    const storedUsers = getStoredUsers();
+    const updatedUsers = storedUsers.filter((user) => user.username !== username);
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
 }
