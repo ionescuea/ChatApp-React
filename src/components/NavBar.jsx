@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function NavBar(props) {
+    // eslint-disable-next-line no-unused-vars
     const [currentPage, setCurrentPage] = useState('HomePage');
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('currentUser') !== null);
     const location = useLocation();
@@ -36,7 +37,7 @@ function NavBar(props) {
                         </Link>
                     </div>
 
-                    <div className="adminChat col-2 d-flex justify-content-center">
+                    <div className="col-2 d-flex justify-content-center">
                         {(isLoggedIn && localStorage.getItem('isAdmin') === 'true') && location.pathname !== '/AdminPage' && (
                             <Link to="/AdminPage" className="nav nav-pills nav-link me-2" onClick={() => handlePageChange('AdminPage')}>
                                 Admin Page
