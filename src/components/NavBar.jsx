@@ -32,12 +32,12 @@ function NavBar(props) {
                     </div>
 
                     <div className="col-2 d-flex justify-content-center">
-                        {(isLoggedIn && props.isAdmin) && location.pathname !== '/adminPage' && (
+                        {isLoggedIn && isAdmin && !['/login', '/register', '/adminPage'].includes(location.pathname) && (
                             <Link to="/adminPage" className="nav nav-pills nav-link me-2">
                                 Admin Page
                             </Link>
                         )}
-                        {(isLoggedIn && location.pathname !== '/chat') && (
+                        {isLoggedIn && !['/login', '/register', '/chat'].includes(location.pathname) && (
                             <Link to="/chat" className="nav nav-pills nav-link">
                                 Chat Page
                             </Link>
@@ -51,7 +51,7 @@ function NavBar(props) {
                     </div>
 
                     <div className="col-2">
-                        {(location.pathname !== '/login' && location.pathname !== '/register' && isLoggedIn) && (
+                        {isLoggedIn && !['/login', '/register'].includes(location.pathname) && (
                             <h1 className="navbar-subtitle">
                                 Hello, {localStorage.getItem('currentUser')}
                             </h1>
@@ -59,7 +59,7 @@ function NavBar(props) {
                     </div>
 
                     <div className="col-2">
-                        {(location.pathname !== '/login' && location.pathname !== '/register' && isLoggedIn) && (
+                        {isLoggedIn && !['/login', '/register'].includes(location.pathname) && (
                             <button type="button" className="btn btn-outline-light" onClick={handleLogout}>
                                 Log out
                             </button>
