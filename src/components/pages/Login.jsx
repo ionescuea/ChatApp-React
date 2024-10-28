@@ -6,116 +6,97 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { PropTypes } from 'prop-types';
 
-
 // Login component
 function Login({ onLogin }) {
-  // Initialize navigation hook
   const navigate = useNavigate();
-
-  // Initialize state variables
-  const [errorText, setErrorText] = useState(''); // Initialize error text state
-  const [errorType, setErrorType] = useState(''); // Initialize error type state
-  const [passwordType, setPasswordType] = useState('password'); // Initialize password type state
-  const [failedAttempts, setFailedAttempts] = useState(0); // Initialize failed attempts state
-  const [email, setEmail] = useState(''); // Initialize email state
-  const [password, setPassword] = useState(''); // Initialize password state
-
+  
+  // State management
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    passwordType: 'password',
+  });
+  
+  const [error, setError] = useState({ text: '', type: '' });
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const MAX_FAILED_ATTEMPTS = 2;
 
   // Handle form submission
-  function handleSubmit(event) {
-    // Prevent default form submission behavior
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    // Get stored users from local storage
+    
+    const { email, password } = formData;
     const storedUsers = getStoredUsers();
-
-    // Check if email and password match a user in stored users
     const user = storedUsers.find((user) => user.email === email && user.password === password);
 
-    // If user is found, navigate to chat page and reset failed attempts counter
     if (user) {
-      localStorage.setItem('currentUser', user.username); // Store username in localStorage
+      localStorage.setItem('currentUser', user.username);
       localStorage.setItem('isAdmin', user.role === 'admin');
       onLogin(user.role === 'admin');
       navigate('/chat', { state: { isAdmin: user.role === 'admin' } });
-      setFailedAttempts(0); // Reset failed attempts counter on successful login
+      setFailedAttempts(0);
     } else {
-      // Increment failed attempts counter
-      setFailedAttempts((prevFailedAttempts) => prevFailedAttempts + 1);
-
-      // If number of failed attempts is less than 2, display error message
-      if (failedAttempts < 2) {
-        setErrorText('Email or password is incorrect. Please try again.');
-        setErrorType('danger');
-      } else {
-        // If maximum number of attempts is reached, display error message and redirect to register page
-        setErrorText('Maximum login attempts reached. You will be redirected to the register page.');
-        setErrorType('danger');
-
-        // Wait for 3 seconds before redirecting to register page
-        setTimeout(() => {
-          // Remove user from local storage
-          // const updatedUsers = storedUsers.filter((user) => user.email !== email);
-          // localStorage.setItem('users', JSON.stringify(updatedUsers));
-
-          // Navigate to register page
-          navigate('/register');
-        }, 3000);
-      }
+      handleFailedLogin();
     }
-  }
-
-  // Handle email input change
-  function handleEmailChange(event) {
-    setEmail(event.target.value);
-  }
-
-  // Handle password input change
-  function handlePasswordChange(event) {
-    setPassword(event.target.value);
-  }
-
-  // Toggle password visibility
-  const togglePassword = () => {
-    setPasswordType(passwordType === 'password' ? 'text' : 'password');
   };
 
-  // Render the login form
+  const handleFailedLogin = () => {
+    setFailedAttempts(prev => prev + 1);
+    
+    if (failedAttempts < MAX_FAILED_ATTEMPTS) {
+      setError({ text: 'Email or password is incorrect. Please try again.', type: 'danger' });
+    } else {
+      setError({ text: 'Maximum login attempts reached. Redirecting to the register page...', type: 'danger' });
+      setTimeout(() => navigate('/register'), 3000);
+    }
+  };
+
+  // Handle input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // Toggle password visibility
+  const togglePasswordVisibility = () => {
+    setFormData(prev => ({
+      ...prev,
+      passwordType: prev.passwordType === 'password' ? 'text' : 'password',
+    }));
+  };
+
   return (
     <section id="login">
       <div className="container">
         <div className="square-login">
           <form onSubmit={handleSubmit}>
             <h1 className="login-title d-grid col-3 mx-auto">Login</h1>
-
-            {errorText && (
-              <div className={`text-danger-${errorType}`}>
-                {errorText}
-              </div>
-            )}
-
+            {error.text && <div className={`text-danger-${error.type}`}>{error.text}</div>}
+            
             <div className="mb-3">
               <input
                 type="email"
                 name="email"
                 className="form-control"
                 placeholder="Email*"
-                value={email}
-                onChange={handleEmailChange}
+                value={formData.email}
+                onChange={handleChange}
+                required
               />
             </div>
 
             <div className="mb-3">
               <input
-                type={passwordType}
+                type={formData.passwordType}
                 name="password"
                 className="form-control"
                 placeholder="Password*"
-                value={password}
-                onChange={handlePasswordChange}
+                value={formData.password}
+                onChange={handleChange}
+                required
               />
-              <span className="password-toggle" onClick={togglePassword}>
-                <i className={`fas ${passwordType === 'password' ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+              <span className="password-toggle" onClick={togglePasswordVisibility}>
+                <i className={`fas ${formData.passwordType === 'password' ? 'fa-eye-slash' : 'fa-eye'}`}></i>
               </span>
             </div>
 
@@ -141,5 +122,4 @@ Login.propTypes = {
   onLogin: PropTypes.func.isRequired,
 };
 
-// Export the Login component
 export default Login;
