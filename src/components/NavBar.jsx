@@ -4,21 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function NavBar(props) {
-    // eslint-disable-next-line no-unused-vars
-    const [currentPage, setCurrentPage] = useState('HomePage');
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('currentUser') !== null);
+    const [isAdmin, setIsAdmin] = useState(localStorage.getItem('isAdmin') === 'true');
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
-        setCurrentPage(location.pathname);
         setIsLoggedIn(localStorage.getItem('currentUser') !== null);
+        setIsAdmin(localStorage.getItem('isAdmin') === 'true');
     }, [location.pathname]);
-
-    const handlePageChange = (page) => {
-        setCurrentPage(page);
-        props.handlePageChange(page);
-    };
 
     const handleLogout = () => {
         localStorage.removeItem('currentUser');
@@ -32,26 +26,26 @@ function NavBar(props) {
             <div className="container-fluid w-100 h-100 m-0 p-0">
                 <div className="row flex-nowrap w-100 align-items-center text-center justify-content-center">
                     <div className="col-2 align-items-left">
-                        <Link to="/HomePage" className="navbar-brand m-0" onClick={() => handlePageChange('HomePage')}>
+                        <Link to="/HomePage" className="navbar-brand m-0">
                             <img src="/logo.jpg" alt="Logo" width="50" height="50" />
                         </Link>
                     </div>
 
                     <div className="col-2 d-flex justify-content-center">
-                        {(isLoggedIn && localStorage.getItem('isAdmin') === 'true') && location.pathname !== '/AdminPage' && (
-                            <Link to="/AdminPage" className="nav nav-pills nav-link me-2" onClick={() => handlePageChange('AdminPage')}>
+                        {(isLoggedIn && props.isAdmin) && location.pathname !== '/adminPage' && (
+                            <Link to="/adminPage" className="nav nav-pills nav-link me-2">
                                 Admin Page
                             </Link>
                         )}
-                        {(isLoggedIn && (location.pathname === '/HomePage' || (localStorage.getItem('isAdmin') === 'true' && location.pathname === '/AdminPage'))) && (
-                            <Link to="/chat" className="nav nav-pills nav-link" onClick={() => handlePageChange('Chat')}>
+                        {(isLoggedIn && location.pathname !== '/chat') && (
+                            <Link to="/chat" className="nav nav-pills nav-link">
                                 Chat Page
                             </Link>
                         )}
                     </div>
 
                     <div className="col-4">
-                        <Link to="/HomePage" className="navbar-title mx-auto" onClick={() => handlePageChange('HomePage')}>
+                        <Link to="/HomePage" className="navbar-title mx-auto">
                             ChatApp
                         </Link>
                     </div>

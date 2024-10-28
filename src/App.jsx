@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import NavBar from './components/NavBar';
 import HomePage from './components/pages/HomePage'
@@ -7,10 +8,11 @@ import Chat from './components/pages/Chat';
 import AdminPage from './components/pages/AdminPage';
 import NotFound from './components/pages/NotFound';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { Navigate } from 'react-router-dom';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('currentUser') !== null);
 
   const handleLogin = (isAdmin) => {
     setIsAdmin(isAdmin);
@@ -21,12 +23,36 @@ function App() {
     <Router>
       <NavBar currentPage={window.location.pathname} isAdmin={isAdmin} />
       <Routes>
-        <Route path='/HomePage' element={<HomePage />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login onLogin={handleLogin} />} />
-        <Route path='/chat' element={<Chat />} />
-        <Route path='adminPage' element={<AdminPage />} />
-        <Route path='*' element={<NotFound />}/>
+        <Route path='/HomePage' element={<HomePage />} exact />
+        <Route path='/register' element={<Register />} exact />
+        <Route path='/login' element={<Login onLogin={handleLogin} />} exact />
+        <Route
+          path='/chat'
+          element={
+            isLoggedIn ? (
+              <Chat />
+            ) : (
+              <Navigate to='/login' replace />
+            )
+          }
+          exact
+        />
+        <Route
+          path='/adminPage'
+          element={
+            isLoggedIn ? (
+              isAdmin ? (
+                <AdminPage />
+              ) : (
+                <Navigate to='/NotFound' replace />
+              )
+            ) : (
+              <Navigate to='/login' replace />
+            )
+          }
+          exact
+        />
+        <Route path='*' element={<NotFound />} exact />
       </Routes>
     </Router>
   )
