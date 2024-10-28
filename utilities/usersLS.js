@@ -8,7 +8,7 @@ const originalUsers = [
 ];
 
 // Function to initialize localStorage with original users if not already present
-function initializeStoredUsers() {
+export function initializeStoredUsers() {
     if (!localStorage.getItem('users')) {
         localStorage.setItem('users', JSON.stringify(originalUsers));
     }
