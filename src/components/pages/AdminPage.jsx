@@ -32,10 +32,13 @@ function AdminPage() {
         localStorage.setItem('users', JSON.stringify(updatedUsers));
     };
 
-    const handleRemoveUser = (index) => {
-        const updatedUsers = storedUsers.filter((_, i) => i !== index);
-        setStoredUsers(updatedUsers);
-        localStorage.setItem('users', JSON.stringify(updatedUsers));
+    const handleRemoveUser = (username) => {
+        const confirmRemoval = window.confirm('Are you sure you want to remove this user?');
+        if (confirmRemoval) {
+            const updatedUsers = storedUsers.filter((user) => user.username !== username);
+            setStoredUsers(updatedUsers);
+            localStorage.setItem('users', JSON.stringify(updatedUsers));
+        }
     };
 
     return (
@@ -44,7 +47,7 @@ function AdminPage() {
                 <div className="admin-row row gx-5">
                     {storedUsers
                         .filter((user) => user.username !== currentUser)
-                        .map((user, index) => (
+                        .map((user) => (
                             <div key={user.username} className="admin-row row gx-5">
                                 <div className="admin-card col-lg-4 col-sm-12">
                                     <p>{user.username}</p>
@@ -70,7 +73,7 @@ function AdminPage() {
                                     <button
                                         type="button"
                                         className="btn btn-danger"
-                                        onClick={() => handleRemoveUser(index)}
+                                        onClick={() => handleRemoveUser(user.username)} // Pass username instead of index
                                     >
                                         Remove
                                     </button>
