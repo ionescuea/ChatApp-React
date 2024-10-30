@@ -1,4 +1,4 @@
-// NavBar.jsx
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';

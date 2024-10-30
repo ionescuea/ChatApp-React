@@ -1,58 +1,54 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect, useRef } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Chat() {
   const [messages, setMessages] = useState([]);
   const [messageInput, setMessageInput] = useState('');
-  const [users, setUsers] = useState([]); // State for users
-  const socket = useRef(null); // WebSocket reference
+  const [users, setUsers] = useState([]);
+  const socket = useRef(null);
 
-  // Initialize WebSocket connection
   useEffect(() => {
-    socket.current = new WebSocket('ws://localhost:3001');
+    socket.current = new WebSocket('ws://127.0.0.1:3001');
 
     socket.current.onopen = () => {
-      console.log('WebSocket connection established.');
-      // Notify when a user joins
-      socket.current.send(JSON.stringify({ text: "A new user has joined the chat!", system: true }));
+        console.log('WebSocket connection established.');
+        socket.current.send(JSON.stringify({ text: "A new user has joined the chat!", system: true }));
     };
 
     socket.current.onmessage = (event) => {
-      const receivedMessage = JSON.parse(event.data);
-      setMessages((prevMessages) => [...prevMessages, receivedMessage]);
+        const receivedMessage = JSON.parse(event.data);
+        setMessages((prevMessages) => [...prevMessages, receivedMessage]);
     };
 
     socket.current.onclose = () => {
-      console.log('WebSocket connection closed.');
+        console.log('WebSocket connection closed.');
+    };
+
+    socket.current.onerror = (error) => {
+        console.error('WebSocket Error:', error);
     };
 
     return () => {
-      if (socket.current) {
-        socket.current.close();
-      }
+        if (socket.current) {
+            socket.current.close();
+        }
     };
-  }, []);
+}, []);
 
-  // Retrieve users from local storage
   useEffect(() => {
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [{ username: "Guest1" }];
     setUsers(storedUsers);
   }, []);
 
-  // Send message function
   const sendMessage = (e) => {
     e.preventDefault();
-    if (messageInput.trim() !== '') {
-      const message = {
-        text: messageInput,
-        timestamp: new Date().toISOString(),
-      };
+    if (messageInput.trim()) {
+      const message = { text: messageInput, timestamp: new Date().toISOString() };
       socket.current.send(JSON.stringify(message));
       setMessageInput('');
     }
   };
 
-  // Clear chat history
   const clearChat = () => {
     setMessages([]);
   };
@@ -62,9 +58,9 @@ function Chat() {
       <div className="container">
         <div className="row align-items-center justify-content-center h-100">
           <div className="col-lg-4 col-sm-12">
-            <ul className="list-group p-3 rounded">
-              {users.map((user, username) => (
-                <li key={username} className="list-group-item">{user.username}</li>
+            <ul className="list-group p-3 rounded" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+              {users.map((user, index) => (
+                <li key={index} className="list-group-item">{user.username}</li>
               ))}
             </ul>
           </div>
@@ -91,7 +87,7 @@ function Chat() {
                     placeholder="Write message"
                     value={messageInput}
                     onChange={(e) => setMessageInput(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' ? sendMessage(e) : null} // Enter key to send
+                    onKeyDown={(e) => e.key === 'Enter' ? sendMessage(e) : null}
                   />
                 </div>
                 <div className="col-auto">
