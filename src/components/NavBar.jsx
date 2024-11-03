@@ -16,7 +16,7 @@ function NavBar({ currentPage, isAdmin }) {
         localStorage.removeItem('currentUser');
         localStorage.removeItem('isAdmin');
         setIsLoggedIn(false);
-        navigate('/HomePage');
+        navigate('/');
     };
 
     return (
@@ -24,7 +24,7 @@ function NavBar({ currentPage, isAdmin }) {
             <div className="container-fluid w-100 h-100 m-0 p-0">
                 <div className="row flex-nowrap w-100 align-items-center text-center justify-content-center">
                     <div className="col-2 align-items-left">
-                        <Link to="/HomePage" className="navbar-brand m-0">
+                        <Link to="/" className="navbar-brand m-0">
                             <img src="/logo.jpg" alt="Logo" width="50" height="50" />
                         </Link>
                     </div>
@@ -41,7 +41,7 @@ function NavBar({ currentPage, isAdmin }) {
                         )}
                     </div>
                     <div className="col-4">
-                        <Link to="/HomePage" className="navbar-title mx-auto">
+                        <Link to="/" className="navbar-title mx-auto">
                             ChatApp
                         </Link>
                     </div>

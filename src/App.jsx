@@ -30,7 +30,7 @@ function App() {
     <Router>
       <NavBar currentPage={window.location.pathname} isAdmin={isAdmin} />
       <Routes>
-        <Route path='/HomePage' element={<HomePage />} exact />
+        <Route path='/' element={<HomePage />} exact />
         <Route
           path='/register'
           element={<Register onRegister={handleLogout} />} // Pass handleLogout as onRegister
