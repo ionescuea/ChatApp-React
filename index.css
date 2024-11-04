@@ -336,12 +336,16 @@ a:hover {
     padding-top: 20px;
 }
 
-.list-group {
+.chat-list {
     background: var(--bg-light-green);
     font-size: 16px;
     font-weight: bold;
-    height: 590px;
+    height: 610px;
     width: 359px;
+    border-radius: 47px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden
 }
 
 .list-group-item {
@@ -350,9 +354,10 @@ a:hover {
     margin: 15px;
     font-size: 16px;
     font-weight: bolder;
+    overflow: hidden
 }
 
-.message-old {
+.chat-messages {
     height: 440px;
     width: 850px;
     border-radius: 47px;
@@ -376,7 +381,7 @@ form input {
     font-weight: regular;
 }
 
-#inputMessage {
+.form-control {
     background: var(--bg-light-silver);
     font-size: 16px;
     font-weight: bold;

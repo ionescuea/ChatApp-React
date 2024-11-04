@@ -49,29 +49,29 @@ function Chat() {
     }
   };
 
-  const clearChat = () => {
-    setMessages([]);
-  };
+  // const clearChat = () => {
+  //   setMessages([]);
+  // };
 
   return (
     <section id="chat">
       <div className="container">
         <div className="row align-items-center justify-content-center h-100">
-          <div className="col-lg-4 col-sm-12">
-            <ul className="list-group p-3 rounded" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+          <div className="chat-list col-lg-4 col-sm-12">
+            <ul className="list-group p-3 rounded">
               {users.map((user, index) => (
                 <li key={index} className="list-group-item">{user.username}</li>
               ))}
             </ul>
           </div>
           <div className="col-lg-8 col-sm-12">
-            <div className="col-3 rounded w-100 mb-3">
+            {/* <div className="col-3 rounded w-100 mb-3">
               <div className="message-old p-3 border">
                 <p>Chat history</p>
                 <button onClick={clearChat} className="btn btn-secondary btn-sm mt-2">Clear Chat</button>
               </div>
-            </div>
-            <div className="chat-messages mb-3 p-3 border rounded" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+            </div> */}
+            <div className="chat-messages mb-3 p-3 border rounded">
               {messages.map((message, index) => (
                 <div key={index} className="message">
                   <strong>{message.system ? "System" : new Date(message.timestamp).toLocaleTimeString()}:</strong> {message.text}
@@ -91,7 +91,7 @@ function Chat() {
                   />
                 </div>
                 <div className="col-auto">
-                  <button type="submit" className="btn btn-primary">Send</button>
+                  <button type="submit" className="btn btn-primary btn-send">Send</button>
                 </div>
               </form>
             </div>
