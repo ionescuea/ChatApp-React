@@ -3,7 +3,6 @@ import http from 'http'; // Import http module
 
 // Create an HTTP server
 const server = http.createServer((request, response) => {
-    // Handle HTTP requests here
     response.writeHead(404);
     response.end();
 });
@@ -19,12 +18,22 @@ webSocketServer.on('request', (request) => {
     console.log('Client connected');
 
     connection.on('message', (message) => {
-        // Echo the message back to all clients
-        webSocketServer.connections.forEach(conn => {
-            if (conn !== connection) {
-                conn.send(message.utf8Data);
-            }
-        });
+        if (message.type === 'utf8') {
+            console.log('Received message:', message.utf8Data);
+
+            // Broadcast the message back to all clients
+            webSocketServer.connections.forEach(conn => {
+                if (conn !== connection) {
+                    // Parse the message and add any needed properties
+                    try {
+                        const parsedMessage = JSON.parse(message.utf8Data);
+                        conn.send(JSON.stringify(parsedMessage)); // Send JSON back
+                    } catch (error) {
+                        console.error("Failed to parse message:", error);
+                    }
+                }
+            });
+        }
     });
 
     connection.on('close', (reasonCode, description) => {
