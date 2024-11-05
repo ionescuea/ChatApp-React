@@ -1,5 +1,6 @@
-import { server as WebSocketServer } from 'websocket'; // Import WebSocket
-import http from 'http'; // Import http module
+// Import necessary modules
+import { server as WebSocketServer } from 'websocket';
+import http from 'http';
 
 // Create an HTTP server
 const server = http.createServer((request, response) => {
@@ -12,24 +13,35 @@ const webSocketServer = new WebSocketServer({
     httpServer: server,
 });
 
+// Store connected clients
+let clients = [];
+
 // Handle WebSocket requests
 webSocketServer.on('request', (request) => {
     const connection = request.accept(null, request.origin);
-    console.log('Client connected');
+    const userData = {}; // Store user data
 
     connection.on('message', (message) => {
         if (message.type === 'utf8') {
-            console.log('Received message:', message.utf8Data);
+            const parsedMessage = JSON.parse(message.utf8Data);
+            if (parsedMessage.username) {
+                userData.username = parsedMessage.username; // Save username
+            }
+
+            console.log('Received message:', parsedMessage);
 
             // Broadcast the message back to all clients
             webSocketServer.connections.forEach(conn => {
                 if (conn !== connection) {
-                    // Parse the message and add any needed properties
+                    // Attach the username to the message
+                    const broadcastMessage = {
+                        ...parsedMessage,
+                        username: userData.username, // Attach username to the message
+                    };
                     try {
-                        const parsedMessage = JSON.parse(message.utf8Data);
-                        conn.send(JSON.stringify(parsedMessage)); // Send JSON back
+                        conn.send(JSON.stringify(broadcastMessage)); // Send JSON back to all other clients
                     } catch (error) {
-                        console.error("Failed to parse message:", error);
+                        console.error("Failed to send message:", error);
                     }
                 }
             });
@@ -38,6 +50,7 @@ webSocketServer.on('request', (request) => {
 
     connection.on('close', (reasonCode, description) => {
         console.log('Client has disconnected.');
+        // Optional: handle user disconnection
     });
 });
 

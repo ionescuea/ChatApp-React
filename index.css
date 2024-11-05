@@ -360,11 +360,39 @@ a:hover {
 .chat-messages {
     height: 440px;
     width: 850px;
-    border-radius: 47px;
     background: var(--bg-light-green);
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: var(--text-color1);
+    overflow: auto;
+    border-radius: 47px;
+    padding: 10px;
+}
+
+.chat-messages::-webkit-scrollbar {
+    display: none;
+}
+
+.message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--text-color1);
+    position: relative;
+}
+
+.sent {
+    background-color: var(--bg-light-silver);
+    text-align: right;
+    margin-left: auto;
+    max-width: 70%;
+}
+
+.received {
+    background-color: var(--bg-light-silver);
+    text-align: left;
+    margin-right: auto;
+    max-width: 70%;
 }
 
 form {
@@ -391,8 +419,17 @@ form input {
     padding-left: 20px;
 }
 
-#inputMessage::placeholder {
+.form-control::placeholder {
     color: var(--text-color1);
+    border-radius: 47px;
+    width: 675px;
+}
+
+.form-control:focus {
+    background: var(--bg-light-silver);
+    color: var(--text-color1);
+    border-radius: 47px;
+    width: 675px;
 }
 
 .btn-send {
