@@ -103,7 +103,7 @@ function Chat() {
   return (
     <section id="chat">
       <div className="container">
-        <div className="row align-items-center justify-content-center h-100">
+        <div className="row h-100">
           <div className="chat-list col-lg-4 col-sm-12">
             <ul className="list-group p-3 rounded">
               {chatUsers
@@ -116,7 +116,7 @@ function Chat() {
             </ul>
           </div>
           <div className="col-lg-8 col-sm-12">
-            <div className="chat-messages mb-3 p-3 border rounded">
+            <div className="chat-messages mb-3 p-5">
               {messages.map((message, index) => (
                 <div key={index} className={`message ${message.username === loggedInUsername ? 'sent' : 'received'}`}>
                   {message.system ? 'System: ' : `${message.username}: `} {message.text}
@@ -124,8 +124,8 @@ function Chat() {
               ))}
               <div ref={endOfMessagesRef} /> {/* Empty div for scrolling to the end */}
             </div>
-            <div className="col-lg-8 col-sm-12 p-3 rounded">
-              <form className="row g-3" onSubmit={sendMessage}>
+            <div className="message-input col-lg-8 col-sm-12 rounded">
+              <form className="d-flex flex-row g-3" onSubmit={sendMessage}>
                 <div className="col-auto">
                   <input
                     type="text"
@@ -136,7 +136,7 @@ function Chat() {
                     onKeyDown={(e) => e.key === 'Enter' ? sendMessage(e) : null}
                   />
                 </div>
-                <div className="col-auto">
+                <div className="col-auto ms-auto">
                   <button type="submit" className="btn btn-primary btn-send">Send</button>
                 </div>
               </form>
