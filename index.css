@@ -383,16 +383,24 @@ a:hover {
 
 .sent {
     background-color: var(--bg-light-silver);
-    text-align: right;
+    text-align: left;
     margin-left: auto;
-    max-width: 70%;
+    max-width: 40%;
+    overflow-wrap: normal;
+    word-break: break-all;
+    padding: 20px;
+    border-radius: 40px;
 }
 
 .received {
     background-color: var(--bg-light-silver);
     text-align: left;
     margin-right: auto;
-    max-width: 70%;
+    max-width: 40%;
+    overflow-wrap: normal;
+    word-break: break-all;
+    padding: 20px;
+    border-radius: 40px;
 }
 
 form {

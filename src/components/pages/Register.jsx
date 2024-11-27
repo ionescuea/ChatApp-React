@@ -48,16 +48,16 @@ const Register = ({ onRegister }) => {
             {userExists && <div className="text-danger">User already registered. Please try a different email or username.</div>}
             {passwordError && <div className="text-danger">{passwordError}</div>}
             <div className="mb-3">
-              <input type="email" className="form-control" placeholder="Email*" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input type="email" className="form-control w-100" placeholder="Email*" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="mb-3">
-              <input type="text" className="form-control" placeholder="Username*" value={username} onChange={(e) => setUsername(e.target.value)} />
+              <input type="text" className="form-control w-100" placeholder="Username*" value={username} onChange={(e) => setUsername(e.target.value)} />
             </div>
             <div className="mb-3">
-              <input type="password" className="form-control" placeholder="Password*" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <input type="password" className="form-control w-100" placeholder="Password*" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className="mb-3">
-              <input type="password" className="form-control" placeholder="Re-enter Password*" value={rePassword} onChange={(e) => setRePassword(e.target.value)} />
+              <input type="password" className="form-control w-100" placeholder="Re-enter Password*" value={rePassword} onChange={(e) => setRePassword(e.target.value)} />
             </div>
             <div id="emailHelp" className="form-text d-grid col-9 mx-auto">
               Please complete all fields that are marked with *.

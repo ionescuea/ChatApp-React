@@ -10,7 +10,7 @@ function Chat() {
   const [loggedInUsername, setLoggedInUsername] = useState('');
   const endOfMessagesRef = useRef(null); // Ref for the end of messages div
 
-  // Fetching chat users from local storage
+  // Fetching chat users from local storage and initializing logged-in user
   useEffect(() => {
     const users = getStoredUsers(); // Fetch users from local storage
     setChatUsers(users); // Set the chat users in state
@@ -27,6 +27,8 @@ function Chat() {
 
   // WebSocket connection setup
   useEffect(() => {
+    if (!loggedInUsername) return; // Prevent connecting if not logged in
+
     socket.current = new WebSocket('ws://127.0.0.1:3001');
 
     socket.current.onopen = () => {
@@ -89,6 +91,15 @@ function Chat() {
     endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  // Display "User not online" message if the user is not logged in
+  if (!loggedInUsername) {
+    return (
+      <div className="container">
+        <h5 className="text-center">User not online. Please log in to chat.</h5>
+      </div>
+    );
+  }
+
   return (
     <section id="chat">
       <div className="container">
@@ -105,7 +116,7 @@ function Chat() {
             </ul>
           </div>
           <div className="col-lg-8 col-sm-12">
-            <div className="chat-messages mb-3 p-3 border rounded" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+            <div className="chat-messages mb-3 p-3 border rounded">
               {messages.map((message, index) => (
                 <div key={index} className={`message ${message.username === loggedInUsername ? 'sent' : 'received'}`}>
                   {message.system ? 'System: ' : `${message.username}: `} {message.text}

@@ -72,7 +72,7 @@ function Login({ onLogin }) {
                 <input
                   type="email"
                   name="email"
-                  className="form-control"
+                  className="form-control w-100"
                   placeholder="Email*"
                   value={formData.email}
                   onChange={handleChange}
@@ -84,7 +84,7 @@ function Login({ onLogin }) {
                 <input
                   type={formData.passwordType}
                   name="password"
-                  className="form-control"
+                  className="form-control w-100"
                   placeholder="Password*"
                   value={formData.password}
                   onChange={handleChange}
