@@ -510,3 +510,39 @@ form input {
     font-weight: bold;
     margin-left: 50px;
 }
+
+/* Not found */
+.square-not-found {
+    position: relative;
+    width: 515px;
+    height: 424px;
+    border-radius: 47px;
+    background: var(--bg-light-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-button {
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+    width: 185px;
+    background-color: var(--bg-light-silver);
+    color: var(--text-color1);
+    border: outset var(--text-color1);
+    border-radius: 47px;
+    padding: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    vertical-align: middle;
+}
+
+.center-button:hover {
+    background: var(--text-color1);
+    color: var(--bg-light-silver);
+    border: 2px solid var(--bg-light-silver);
+    box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
+}
