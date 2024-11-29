@@ -102,7 +102,7 @@ function Chat() {
 
   return (
     <section id="chat">
-      <div className="container">
+      <div className="container-chat">
         <div className="row h-100">
           <div className="chat-list col-lg-4 col-sm-12">
             <ul className="list-group p-3 rounded">
