@@ -54,7 +54,7 @@ function NavBar({ currentPage, isAdmin }) {
                     </div>
                     <div className="col-2">
                         {isLoggedIn && (
-                            <button type="button" className="btn btn-outline-light" onClick={handleLogout}>
+                            <button type="button" className="btn" onClick={handleLogout}>
                                 Log out
                             </button>
                         )}

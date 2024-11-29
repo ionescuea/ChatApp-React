@@ -14,53 +14,212 @@ body {
 /* Navbar */
 .navbar {
     background: #8151B0;
-    width: 1116px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 100%; 
+    overflow: hidden;
+}
+
+.navbar img {
+    width: 50px; 
+    height: 50px;
+    transition: all 0.3s ease; 
 }
 
 .navbar-title {
-    font-size: 36px;
+    font-size: 28px;
     background: var(--bg-light-green);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
     font-weight: bold;
     font-style: italic;
-    align-items: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .navbar-subtitle {
-    font-size: 20px;
+    font-size: 16px;
     background: var(--bg-light-green);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
     font-style: italic;
-    margin: 0px;
+    margin: 0;
+    text-align: center;
 }
 
 .nav,
 nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    overflow: hidden;
     background: var(--bg-light-green);
     color: var(--text-color1);
-    font-size: 15px;
     font-weight: 500;
     border-radius: 47px;
     padding: 5px;
-    width: 100px;
+    text-align: center;
+    margin: 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
 .navbar button {
-    border-color: var(--bg-light-silver);
-    color: var(--bg-light-silver);
-    font-size: 12px;
+    border-color: #C3FFC2;
+    color: #C3FFC2;
+    font-size: 11px;
     font-weight: bold;
     border-radius: 5px;
+    margin: 5px;
+    padding: 5px 10px;
 }
 
 .navbar button:hover {
-    background: var(--bg-light-silver);
+    background: var(--bg-light-green);
     color: var(--text-color1);
 }
+
+/* Media Queries NavBar*/
+
+/* Large Screens (lg: 992px and above) */
+@media (min-width: 993px) {
+    .navbar img {
+        width: 60px;
+        height: 60px;
+    }
+    .navbar-title {
+        font-size: 28px;
+    }
+    .navbar-subtitle {
+        font-size: 16px;
+    }
+    .nav,
+    nav-pills {
+        font-size: 14px;
+        padding: 8px;
+        width: 120px;
+    }
+    .navbar button {
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+}
+
+/* Medium Screens (md: 768px–992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .navbar img {
+        width: 50px;
+        height: 50px;
+    }
+    .navbar-title {
+        font-size: 26px;
+    }
+    .navbar-subtitle {
+        font-size: 16px;
+    }
+    .nav,
+    nav-pills {
+        font-size: 13px;
+        padding: 6px;
+        width: 100px;
+    }
+    .navbar button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+/* Small Screens (sm: 576px–767px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .navbar img {
+        width: 45px;
+        height: 45px;
+    }
+    .navbar-title {
+        font-size: 24px;
+    }
+    .navbar-subtitle {
+        font-size: 15px;
+    }
+    .nav,
+    nav-pills {
+        font-size: 12px;
+        padding: 4px;
+        overflow: visible;
+    }
+    .navbar button {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
+
+/* Extra Small Screens (xsm: 360px–576px) */
+@media (min-width: 361px) and (max-width: 576px) {
+    .navbar {
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center;
+    }
+    .navbar img {
+        width: 30px;
+        height: 30px;
+    }
+    .navbar-title {
+        font-size: 22px;
+    }
+    .navbar-subtitle {
+        font-size: 14px;
+    }
+    .nav,
+    nav-pills {
+        font-size: 9px;
+        padding: 4px;
+        overflow: visible;
+    }
+    .navbar button {
+        font-size: 10px;
+        padding: 4px 9px;
+    }
+}
+
+/* Extra Extra Small Screens (xsm: ≤360px) */
+@media (max-width: 360px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar img {
+        width: 30px;
+        height: 30px;
+    }
+    .navbar-title {
+        font-size: 20px;
+    }
+    .navbar-subtitle {
+        font-size: 13px;
+    }
+    .nav,
+    nav-pills {
+        font-size: 12px;
+        padding: 5px;
+        overflow: visible;
+    }
+    .navbar button {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
+
+
 
 /* HomePage */
 .container {
