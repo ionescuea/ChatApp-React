@@ -16,14 +16,17 @@ body {
 /* Navbar */
 .navbar {
     background: #8151B0;
+    position: fixed; 
+    top: 0;
+    left: 0;
     width: 100%;
+    z-index: 1000;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    max-width: 100%; 
     overflow: hidden;
 }
 
@@ -92,7 +95,6 @@ nav-pills {
 }
 
 /* Media Queries NavBar*/
-
 /* Large Screens (lg: 992px and above) */
 @media (min-width: 993px) {
     .navbar img {
@@ -168,8 +170,9 @@ nav-pills {
 /* Extra Small Screens (xsm: 360px–576px) */
 @media (min-width: 361px) and (max-width: 576px) {
     .navbar {
-        flex-direction: column; /* Stacks items vertically */
-        align-items: center;
+        position: fixed;
+        z-index: 1000;
+        height: 60px;
     }
     .navbar img {
         width: 30px;
@@ -341,6 +344,120 @@ nav-pills {
     border: 2px solid var(--bg-light-silver);
     box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
 }
+/* Media queries Homepage */
+@media (max-width: 992px) {
+    .square {
+        width: 400px;
+        height: 350px;
+    }
+
+    .top-left-button, .bottom-right-button {
+        width: 150px;
+        font-size: 15px;
+    }
+
+    .top-left-button {
+        top: 80px;
+        left: 30px;
+    }
+
+    .bottom-right-button {
+        bottom: 80px;
+        right: 30px;
+    }
+
+    .logo {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-top: 20px;
+    }
+
+    .square {
+        width: 300px;
+        height: 300px;
+    }
+
+    .top-left-button, .bottom-right-button {
+        width: 120px;
+        font-size: 13px;
+    }
+
+    .top-left-button {
+        top: 80px;
+        left: 20px;
+    }
+
+    .bottom-right-button {
+        bottom: 80px;
+        right: 20px;
+    }
+
+    .logo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .square {
+        width: 250px;
+        height: 250px;
+    }
+
+    .top-left-button, .bottom-right-button {
+        width: 100px;
+        font-size: 11px;
+        padding: 3px;
+    }
+
+    .top-left-button {
+        top: 70px;
+        left: 30px;
+    }
+
+    .bottom-right-button {
+        bottom: 70px;
+        right: 30px;
+    }
+
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 360px) {
+    .square {
+        width: 190px;
+        height: 190px;
+    }
+
+    .top-left-button, .bottom-right-button {
+        width: 100px;
+        font-size: 10px;
+        padding: 3px;
+    }
+
+    .top-left-button {
+        top: 40px;
+        left: 10px;
+    }
+
+    .bottom-right-button {
+        bottom: 40px;
+        right: 10px;
+    }
+
+    .logo {
+        width: 120px;
+        height: 120px;
+    }
+}
 
 /* Register */
 .square-register {
@@ -433,10 +550,13 @@ nav-pills {
     width: 515px;
     height: 317px;
     border-radius: 47px;
-    background: var(--bg-light-green);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form-control value {
+    color: var(--text-color1);
 }
 
 .login-title {
@@ -445,6 +565,10 @@ nav-pills {
     font-weight: bold;
     font-style: italic;
     text-align: center;
+}
+
+.password-toggle {
+    top: 43%;
 }
 
 .login-button {
@@ -487,6 +611,111 @@ a:hover {
     text-align: center;
 }
 
+/* Media queries for Login */
+/* Large screens (lg) - Desktops and large tablets */
+@media (min-width: 993px) {
+    .square-login {
+        width: 515px;
+        height: 317px;
+    }
+
+    .login-title {
+        font-size: 36px;
+    }
+
+    .password-toggle {
+        top: 45%;
+    }
+
+    .login-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* Medium screens (md) - Tablets */
+@media (min-width: 768px) and (max-width: 992px) {
+    .square-login {
+        width: 400px;
+        height: 280px;
+    }
+
+    .login-title {
+        font-size: 28px;
+    }
+
+    .login-button {
+        font-size: 14px;
+        padding: 8px 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    a {
+        font-size: 14px;
+    }
+}
+
+/* Small screens (sm) - Mobile devices */
+@media (max-width: 767px) {
+    .square-login {
+        width: 300px;
+        height: 250px;
+        padding: 20px; /* Optional: Add padding for better spacing */
+    }
+
+    .login-title {
+        font-size: 24px;
+    }
+
+    .password-toggle {
+        top: 38%;
+        padding-right: 15px;
+    }
+
+    .login-button {
+        font-size: 12px;
+        padding: 6px 15px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    a {
+        font-size: 12px;
+    }
+}
+
+/* Extra small screens (xs) - Very small mobile devices */
+@media (max-width: 576px) {
+    .square-login {
+        width: 250px;
+        height: 220px;
+        padding: 15px; /* Optional: Add padding for spacing */
+    }
+
+    .login-title {
+        font-size: 20px;
+    }
+
+    .login-button {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    a {
+        font-size: 10px;
+    }
+}
+
+
 /* Chat */
 #chat {
     display: flex;
@@ -494,12 +723,16 @@ a:hover {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    padding-top: 20px;
+    padding-top: 50px;
     
 }
 .container-chat {
     height: auto;
     max-width: 1200px;
+}
+
+.row.h-100 {
+    height: auto; 
 }
 
 .chat-list {
@@ -532,6 +765,7 @@ a:hover {
     font-weight: bold;
     color: var(--text-color1);
     overflow: auto;
+    border: #C3FFC2 10px solid;
     border-radius: 47px;
     flex: 1;
 }
@@ -638,16 +872,20 @@ form input {
 
 /* Media Queries */
 @media (max-width: 992px) { /* Large devices (lg) */
+    #chat {
+        padding-top: 450px; /* Match navbar height */
+    }
+
     .chat-messages,
     .message-input,
     form {
-        width: 700px;
+        width: 100%;
     }
 
     .chat-list {
-        height: 500px;
-        width: 300px;
-        margin-bottom: 18px;;
+        width: 100%; /* Full width for smaller screens */
+        overflow-y: auto;
+        margin-bottom: 18px;
     }
 
     .list-group-item {
@@ -655,15 +893,19 @@ form input {
     }
 
     .form-control {
-        width: 550px;
+        width: 800px;
     }
 }
 
 @media (max-width: 768px) { /* Medium devices (md) */
+    #chat {
+        padding-top: 250px; 
+    }
+    
     .chat-messages,
     .message-input,
     form {
-        width: 600px;
+        width: 100%;
     }
 
     .chat-list {
@@ -687,6 +929,9 @@ form input {
 }
 
 @media (max-width: 576px) { /* Small devices (sm) */
+    #chat {
+        padding-top: 250px;
+    }
     .chat-messages,
     .message-input,
     form {
@@ -694,8 +939,8 @@ form input {
     }
     
     .chat-list {
-        height: 300px;
-        width: 100%;
+        width: 100%; 
+        overflow-y: auto; 
     }
 
     .list-group-item {
@@ -703,7 +948,7 @@ form input {
     }
 
     .form-control {
-        width: 155%;
+        width: 165%;
     }
 
     .form-control:focus {
@@ -728,6 +973,10 @@ form input {
 }
 
 @media (max-width: 360px) { /* Extra small devices (xs) */
+    
+    #chat {
+        padding-top: 250px; 
+    }
     .chat-messages,
     .message-input,
     form {
@@ -735,9 +984,9 @@ form input {
     }
 
     .chat-list {
-        height: 300px;
-        width: 100%;
-    }    
+        width: 100%; 
+        overflow-y: auto; 
+    }   
 
     .form-control {
         width: 90%; 
@@ -749,13 +998,13 @@ form input {
     }
 
     .sent, .received {
-        max-width: 80%;
-        font-size: 10px;
+        max-width: 68%;
+        font-size: 8px;
     }
 
     .message {
         width: auto; 
-        padding: 15px;
+        padding: 10px;
     }  
 
     .col-auto {
@@ -763,8 +1012,9 @@ form input {
     }
 
     .btn-send {
-        width: 60px;
+        width: 55px;
         height: 60px;
+        font-size: 12px;
     }
 }
 
