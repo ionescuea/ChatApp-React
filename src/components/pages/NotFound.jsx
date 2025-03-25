@@ -9,10 +9,10 @@ const NotFound = () => (
         <div className="row text-center">
           <div className="text-overlay">
             <p className="not-found-text">
-              Sorry, the page you are looking for does not exist
+              Sorry, you don&apos;t have access to this page, yet...
             </p>
             <Link to="/">
-              <button className="center-button active">Back to our site</button>
+              <button className="center-button active">Back to Main Page</button>
             </Link>
           </div>
           <img src="/logo.jpg" alt="Logo" className="logo"></img>
