@@ -544,6 +544,111 @@ nav-pills {
     text-align: center;
 }
 
+/* Media queries for Register */
+/* Large screens (lg) - Desktops and large tablets */
+@media (min-width: 993px) {
+    .container {
+        padding-top: 2px;
+    }
+    .square-register {
+        width: 515px;
+        height: 317px;
+    }
+
+    .register-title {
+        font-size: 36px;
+    }
+
+    .password {
+        top: 45%;
+    }
+
+    .register-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* Medium screens (md) - Tablets */
+@media (min-width: 768px) and (max-width: 992px) {
+    .square-register {
+        width: 400px;
+        height: 280px;
+    }
+
+    .register-title {
+        font-size: 28px;
+    }
+
+    .register-button {
+        font-size: 14px;
+        padding: 8px 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    a {
+        font-size: 14px;
+    }
+}
+
+/* Small screens (sm) - Mobile devices */
+@media (max-width: 767px) {
+    .square-register {
+        width: 300px;
+        height: 250px;
+    }
+
+    .register-title {
+        font-size: 24px;
+    }
+
+    .password {
+        top: 38%;
+        padding-right: 15px;
+    }
+
+    .register-button {
+        font-size: 12px;
+        padding: 6px 15px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    a {
+        font-size: 12px;
+    }
+}
+
+/* Extra small screens (xs) - Very small mobile devices */
+@media (max-width: 576px) {
+    .square-register {
+        width: 300px;
+        height: 220px;
+    }
+
+    .register-title {
+        font-size: 20px;
+    }
+
+    .register-button {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    a {
+        font-size: 10px;
+    }
+}
+
 /* Login */
 .square-login {
     position: relative;
@@ -663,7 +768,6 @@ a:hover {
     .square-login {
         width: 300px;
         height: 250px;
-        padding: 20px; /* Optional: Add padding for better spacing */
     }
 
     .login-title {
@@ -694,7 +798,6 @@ a:hover {
     .square-login {
         width: 250px;
         height: 220px;
-        padding: 15px; /* Optional: Add padding for spacing */
     }
 
     .login-title {
