@@ -2,6 +2,9 @@
 import { server as WebSocketServer } from 'websocket';
 import http from 'http';
 
+// Get the port from the environment variable (Render dynamically assigns this)
+const PORT = process.env.PORT || 3001;
+
 // Create an HTTP server
 const server = http.createServer((request, response) => {
     response.writeHead(404);
@@ -55,6 +58,6 @@ webSocketServer.on('request', (request) => {
 });
 
 // Start the server
-server.listen(3001, () => {
-    console.log('WebSocket server is listening on port 3001');
+server.listen(PORT, () => {
+    console.log(`WebSocket server is listening on port ${PORT}`);
 });

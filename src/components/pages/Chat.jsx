@@ -29,7 +29,7 @@ function Chat() {
   useEffect(() => {
     if (!loggedInUsername) return; // Prevent connecting if not logged in
 
-    socket.current = new WebSocket('ws://127.0.0.1:3001');
+    socket.current = new WebSocket('wss://chatapp-react-pi8n.onrender.com');
 
     socket.current.onopen = () => {
       console.log('WebSocket connection established.');
