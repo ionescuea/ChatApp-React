@@ -103,8 +103,8 @@ function Chat() {
   return (
     <section id="chat">
       <div className="container-chat">
-        <div className="row h-100">
-          <div className="chat-list col-lg-4 col-sm-12">
+        <div className="row h-100 justify-content-center">
+          <div className="chat-list col-md-5 mb-3">
             <ul className="list-group p-3 rounded">
               {chatUsers
                 .filter(user => user.username !== loggedInUsername) // Filter out the logged-in user
@@ -115,8 +115,8 @@ function Chat() {
                 ))}
             </ul>
           </div>
-          <div className="col-lg-8 col-sm-12">
-            <div className="chat-messages mb-3 p-5">
+          <div className="message-list col-md-7">
+            <div className="chat-messages mb-3 p-4">
               {messages.map((message, index) => (
                 <div key={index} className={`message ${message.username === loggedInUsername ? 'sent' : 'received'}`}>
                   {message.system ? 'System: ' : `${message.username}: `} {message.text}
@@ -124,21 +124,17 @@ function Chat() {
               ))}
               <div ref={endOfMessagesRef} /> {/* Empty div for scrolling to the end */}
             </div>
-            <div className="message-input col-lg-8 col-sm-12 rounded">
-              <form className="d-flex flex-row g-3" onSubmit={sendMessage}>
-                <div className="col-auto">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Write message"
-                    value={messageInput}
-                    onChange={(e) => setMessageInput(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' ? sendMessage(e) : null}
-                  />
-                </div>
-                <div className="col-auto ms-auto">
-                  <button type="submit" className="btn btn-primary btn-send">Send</button>
-                </div>
+            <div className="message-input w-100 rounded">
+              <form className="d-flex flex-row align-items-center" onSubmit={sendMessage}>
+                <input
+                  type="text"
+                  className="form-control flex-grow-1"
+                  placeholder="Write message"
+                  value={messageInput}
+                  onChange={(e) => setMessageInput(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' ? sendMessage(e) : null}
+                />
+                <button type="submit" className="btn btn-primary btn-send ms-2">Send</button>
               </form>
             </div>
           </div>

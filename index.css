@@ -826,16 +826,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    padding-top: 50px;
-    
-}
-.container-chat {
-    height: auto;
-    max-width: 1200px;
-}
-
-.row.h-100 {
-    height: auto; 
+    padding: 15px;
 }
 
 .chat-list {
@@ -847,8 +838,6 @@ a:hover {
     border-radius: 47px;
     padding-top: 10px;
     padding-bottom: 10px;
-    overflow: hidden;
-    flex: 1;
 }
 
 .list-group-item {
@@ -857,7 +846,6 @@ a:hover {
     margin: 15px;
     font-size: 16px;
     font-weight: bolder;
-    overflow: hidden
 }
 
 .chat-messages {
@@ -870,7 +858,6 @@ a:hover {
     overflow: auto;
     border: #C3FFC2 10px solid;
     border-radius: 47px;
-    flex: 1;
 }
 
 .chat-messages::-webkit-scrollbar {
@@ -879,11 +866,7 @@ a:hover {
 
 .message-input {
     height: 10px;
-}
-
-.message-input {
     width: 850px;
-    flex: 1;
 }
 
 .message {
@@ -954,7 +937,7 @@ form input {
     background: var(--bg-light-silver);
     color: var(--text-color1);
     border-radius: 47px;
-    border: 1px solid var(--text-color1); /* Slight border on focus */
+    border: 1px solid var(--text-color1);
 }
 
 .btn-send {
@@ -972,37 +955,9 @@ form input {
     background: var(--text-color1);
     color: var(--bg-light-silver);
 }
-
-/* Media Queries */
-@media (max-width: 992px) { /* Large devices (lg) */
-    #chat {
-        padding-top: 450px; /* Match navbar height */
-    }
-
-    .chat-messages,
-    .message-input,
-    form {
-        width: 100%;
-    }
-
-    .chat-list {
-        width: 100%; /* Full width for smaller screens */
-        overflow-y: auto;
-        margin-bottom: 18px;
-    }
-
-    .list-group-item {
-        font-size: 14px;
-    }
-
-    .form-control {
-        width: 800px;
-    }
-}
-
 @media (max-width: 768px) { /* Medium devices (md) */
     #chat {
-        padding-top: 250px; 
+        margin-top: 100px;
     }
     
     .chat-messages,
@@ -1012,12 +967,21 @@ form input {
     }
 
     .chat-list {
-        height: 400px;
-        width: 280px;
+        width: 98%;
+        overflow-y: auto;
+        height: 350px;
     }
+
+    /* .list-group { 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    } */
 
     .list-group-item {
         font-size: 12px;
+        padding: 02px;;
     }
 
     .form-control {
@@ -1033,7 +997,7 @@ form input {
 
 @media (max-width: 576px) { /* Small devices (sm) */
     #chat {
-        padding-top: 250px;
+        padding-top: 20px;
     }
     .chat-messages,
     .message-input,
@@ -1042,12 +1006,12 @@ form input {
     }
     
     .chat-list {
-        width: 100%; 
+        width: 95%; 
         overflow-y: auto; 
     }
 
     .list-group-item {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .form-control {
@@ -1072,52 +1036,6 @@ form input {
     .btn-send {
         width: 80px;
         height: 60px;
-    }
-}
-
-@media (max-width: 360px) { /* Extra small devices (xs) */
-    
-    #chat {
-        padding-top: 250px; 
-    }
-    .chat-messages,
-    .message-input,
-    form {
-        width: 100%;
-    }
-
-    .chat-list {
-        width: 100%; 
-        overflow-y: auto; 
-    }   
-
-    .form-control {
-        width: 90%; 
-    }
-
-    .form-control:focus {
-        outline: none;
-        border: 1px solid var(--text-color1); 
-    }
-
-    .sent, .received {
-        max-width: 68%;
-        font-size: 8px;
-    }
-
-    .message {
-        width: auto; 
-        padding: 10px;
-    }  
-
-    .col-auto {
-        width: 80%;
-    }
-
-    .btn-send {
-        width: 55px;
-        height: 60px;
-        font-size: 12px;
     }
 }
 
