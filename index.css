@@ -495,7 +495,7 @@ nav-pills {
 }
 
 .form-text {
-    color: var(--text-color1);
+    text-align: center;
 }
 
 .register-button {
@@ -640,6 +640,10 @@ nav-pills {
         font-size: 10px;
         padding: 4px 10px;
     }
+    .form-text {
+        font-size: 6px;
+        margin: 0px;
+    }
 
     p {
         font-size: 10px;
@@ -675,6 +679,10 @@ nav-pills {
 
 .password-toggle {
     top: 43%;
+}
+
+.form-text {
+    text-align: center;
 }
 
 .login-button {
@@ -750,6 +758,15 @@ a:hover {
         font-size: 28px;
     }
 
+    .form-text {
+        font-size: 12px;
+    }
+
+    .password-toggle {
+        top: 45%;
+        padding-right: 15px;
+    }
+
     .login-button {
         font-size: 14px;
         padding: 8px 18px;
@@ -775,9 +792,13 @@ a:hover {
         font-size: 24px;
     }
 
+    .form-text {
+        font-size: 8px;
+    }
+
     .password-toggle {
-        top: 38%;
-        padding-right: 15px;
+        top: 47%;
+        padding-right: 12px;
     }
 
     .login-button {
@@ -797,7 +818,7 @@ a:hover {
 /* Extra small screens (xs) - Very small mobile devices */
 @media (max-width: 576px) {
     .square-login {
-        width: 250px;
+        width: 300px;
         height: 220px;
     }
 
@@ -805,8 +826,12 @@ a:hover {
         font-size: 20px;
     }
 
+    .form-text {
+        font-size: 8px;
+    }
+
     .login-button {
-        font-size: 10px;
+        font-size: 12px;
         padding: 4px 10px;
     }
 

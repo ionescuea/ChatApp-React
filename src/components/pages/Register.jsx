@@ -60,7 +60,7 @@ const Register = ({ onRegister }) => {
               <input type="password" className="form-control w-100" placeholder="Re-enter Password*" value={rePassword} onChange={(e) => setRePassword(e.target.value)} />
             </div>
             <div id="emailHelp" className="form-text d-grid col-9 mx-auto">
-              Please complete all fields that are marked with *.
+              Please complete all fields marked with *.
             </div>
             <button type="submit" className="d-grid col-6 mx-auto register-button btn btn-primary" disabled={registerButtonDisabled}>
               Register

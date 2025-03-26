@@ -96,7 +96,7 @@ function Login({ onLogin }) {
               </div>
 
               <div id="emailHelp" className="form-text d-grid col-9 mx-auto">
-                To login, complete all fields that are marked with *.
+                To login, please complete all fields marked with *.
               </div>
 
               <button type="submit" className="d-grid col-6 mx-auto login-button btn btn-primary">
