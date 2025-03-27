@@ -27,25 +27,25 @@ To use the app, simply navigate to `http://localhost:3000` in your web browser o
 
 On the Main page, you can register a new account or log in to an existing one to start chatting with other users.
 
-[Main-page](public/Main-page.jpg)
-[Register](public/Register.jpg)
-[Login](public/Login.jpg)
+![Main-page](public/Main-page.jpg)
+![Register](public/Register.jpg)
+![Login](public/Login.jpg)
 
 Once logged in with credentials, the user is directed to the Chat page.
 
-[Chat](public/Chat.jpg)
+![Chat](public/Chat.jpg)
 
 Some of the users from [originalUsers](utilities/usersLS.js#originalUsers) have an admin role, so once those users are logged in, they can see the Admin button on the nav bar.
 
-[Chat/Admin](public/Chat-and-Admin.jpg)
+![Chat/Admin](public/Chat-and-Admin.jpg)
 
 The users who have the admin role, can access the admin page and grant admin role to oter logged users, cancel the admin role for others or remove their credentials from the app.
 
-[Admin](public/Admin.jpg)
+![Admin](public/Admin.jpg)
 
 The users who don't have the admin role and try to logg in onto it, they will receive a Page Not Found message and the option to return to the Main page.
 
-[PageNotFound](public/NotFound.jpg)
+![PageNotFound](public/NotFound.jpg)
 
 ## Credits
 ChatApp-React was built using the following technologies:
@@ -59,4 +59,4 @@ ChatApp-React was built using the following technologies:
 The app is deployed on Netlify, and the server is hosted on Render.
 
 ## Licence
-Licensed under the MIT license.
+Licensed under the [MIT](LICENSE) license.
