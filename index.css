@@ -1191,6 +1191,12 @@ form input {
     padding: 20px;
 }
 
+.logo-not-found {
+  width: 238px;
+  height: 239px;
+  margin: 0 auto;
+}
+
 .center-button {
     position: absolute;
     bottom: 100px;
@@ -1220,7 +1226,7 @@ form input {
         width: 60%;
         height: 380px;
     }
-    .logo {
+    .logo-not-found {
         width: 65%;
         height: auto;
     }
@@ -1237,7 +1243,7 @@ form input {
         width: 60%;
         height: 350px;
     }
-    .logo {
+    .logo-not-found {
         width: 65%;
         height: auto;
     }
@@ -1271,7 +1277,7 @@ form input {
         width: 80%;
         height: 300px;
     }
-    .logo {
+    .logo-not-found {
         width: 55%;
         height: auto;
     }
