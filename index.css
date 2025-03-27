@@ -4,7 +4,6 @@
     --bg-dark-green: linear-gradient(to bottom, #759974 50%, #273327);
     --bg-light-silver: #D9D9D9;
     --text-color1: #8151B0;
-    /* background: var(--bg-purple); */
 }
 
 body {
@@ -225,8 +224,6 @@ nav-pills {
     }
 }
 
-
-
 /* HomePage */
 .container {
     display: flex;
@@ -242,7 +239,6 @@ nav-pills {
     width: 515px;
     height: 424px;
     border-radius: 47px;
-    /* background: var(--bg-light-green); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -348,22 +344,22 @@ nav-pills {
 /* Media queries Homepage */
 @media (max-width: 992px) {
     .square {
-        width: 400px;
+        width: 350px;
         height: 350px;
     }
 
     .top-left-button, .bottom-right-button {
-        width: 150px;
+        width: 120px;
         font-size: 15px;
     }
 
     .top-left-button {
-        top: 80px;
+        top: 70px;
         left: 30px;
     }
 
     .bottom-right-button {
-        bottom: 80px;
+        bottom: 70px;
         right: 30px;
     }
 
@@ -374,44 +370,68 @@ nav-pills {
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding-top: 20px;
-    }
-
     .square {
         width: 300px;
         height: 300px;
     }
 
     .top-left-button, .bottom-right-button {
-        width: 120px;
+        width: 110px;
         font-size: 13px;
     }
 
     .top-left-button {
-        top: 80px;
+        top: 60px;
         left: 20px;
     }
 
     .bottom-right-button {
-        bottom: 80px;
+        bottom: 60px;
         right: 20px;
     }
 
     .logo {
         width: 150px;
-        height: 150px;
+        height: auto;
     }
 }
 
 @media (max-width: 576px) {
     .square {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
     }
 
     .top-left-button, .bottom-right-button {
-        width: 100px;
+        width: 110px;
+        font-size: 11px;
+        padding: 3px;
+    }
+
+    .top-left-button {
+        top: 65px;
+        left: 30px;
+    }
+
+    .bottom-right-button {
+        bottom: 65px;
+        right: 30px;
+    }
+
+    .logo {
+        width: 150px;
+        height: auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .square {
+        width: 300px;
+        height: 300px;
+    }
+
+    .top-left-button, .bottom-right-button {
+        width: 110px;
         font-size: 11px;
         padding: 3px;
     }
@@ -427,36 +447,8 @@ nav-pills {
     }
 
     .logo {
-        width: 120px;
-        height: 120px;
-    }
-}
-
-@media (max-width: 360px) {
-    .square {
-        width: 190px;
-        height: 190px;
-    }
-
-    .top-left-button, .bottom-right-button {
-        width: 100px;
-        font-size: 10px;
-        padding: 3px;
-    }
-
-    .top-left-button {
-        top: 40px;
-        left: 10px;
-    }
-
-    .bottom-right-button {
-        bottom: 40px;
-        right: 10px;
-    }
-
-    .logo {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: auto;
     }
 }
 
@@ -640,6 +632,7 @@ nav-pills {
         font-size: 10px;
         padding: 4px 10px;
     }
+
     .form-text {
         font-size: 6px;
         margin: 0px;
@@ -844,7 +837,6 @@ a:hover {
     }
 }
 
-
 /* Chat */
 #chat {
     display: flex;
@@ -998,13 +990,6 @@ form input {
         height: 350px;
     }
 
-    /* .list-group { 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-    } */
-
     .list-group-item {
         font-size: 12px;
         padding: 02px;;
@@ -1025,6 +1010,7 @@ form input {
     #chat {
         padding-top: 20px;
     }
+
     .chat-messages,
     .message-input,
     form {
@@ -1122,7 +1108,7 @@ form input {
 /* Large devices (lg) and below */
 @media (max-width: 991px) { 
     .admin-card2 {
-        display: none; /* Hides the email column */
+        display: none;
     }
     .form-check {
         margin-left: 10px;
@@ -1205,7 +1191,6 @@ form input {
     padding: 20px;
 }
 
-/* Button */
 .center-button {
     position: absolute;
     bottom: 100px;
@@ -1229,8 +1214,8 @@ form input {
     box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) { /* Tablets and small laptops */
+/* Media queries Not found page */
+@media (max-width: 992px) {
     .square-not-found {
         width: 60%;
         height: 380px;
@@ -1247,7 +1232,7 @@ form input {
     }
 }
 
-@media (max-width: 768px) { /* Tablets and large phones */
+@media (max-width: 768px) {
     .square-not-found {
         width: 60%;
         height: 350px;
@@ -1264,12 +1249,12 @@ form input {
     }
 }
 
-@media (max-width: 576px) { /* Small screens */
+@media (max-width: 576px) {
     .square-not-found {
         width: 70%;
         height: 320px;
     }
-    .logo {
+    .logo-not-found {
         width: 75%;
         height: auto;
     }
@@ -1281,7 +1266,7 @@ form input {
     }
 }
 
-@media (max-width: 400px) { /* Extra small screens */
+@media (max-width: 400px) {
     .square-not-found {
         width: 80%;
         height: 300px;
