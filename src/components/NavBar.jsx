@@ -31,12 +31,12 @@ function NavBar({ currentPage, isAdmin }) {
                     <div className="col-2 d-flex justify-content-center">
                         {isLoggedIn && isAdmin && (
                             <Link to="/adminPage" className="nav nav-pills nav-link me-2">
-                                Admin Page
+                                Admin
                             </Link>
                         )}
                         {isLoggedIn && (
                             <Link to="/chat" className="nav nav-pills nav-link">
-                                Chat Page
+                                Chat
                             </Link>
                         )}
                     </div>
