@@ -1190,7 +1190,7 @@ form input {
     }
 }
 
-/* Not found */
+/* Not Found */
 .square-not-found {
     position: relative;
     width: 515px;
@@ -1198,25 +1198,28 @@ form input {
     border-radius: 47px;
     background: var(--bg-light-green);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
+/* Button */
 .center-button {
     position: absolute;
     bottom: 100px;
     right: 50px;
-    width: 185px;
+    width: 160px;
     background-color: var(--bg-light-silver);
     color: var(--text-color1);
     border: outset var(--text-color1);
     border-radius: 47px;
     padding: 5px;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
-    vertical-align: middle;
 }
 
 .center-button:hover {
@@ -1224,4 +1227,73 @@ form input {
     color: var(--bg-light-silver);
     border: 2px solid var(--bg-light-silver);
     box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Tablets and small laptops */
+    .square-not-found {
+        width: 60%;
+        height: 380px;
+    }
+    .logo {
+        width: 65%;
+        height: auto;
+    }
+    .center-button {
+        width: 110px;
+        font-size: 10px;
+        bottom: 80px;
+        right: 45px;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets and large phones */
+    .square-not-found {
+        width: 60%;
+        height: 350px;
+    }
+    .logo {
+        width: 65%;
+        height: auto;
+    }
+    .center-button {
+        width: 110px;
+        font-size: 10px;
+        bottom: 75px;
+        right: 40px;
+    }
+}
+
+@media (max-width: 576px) { /* Small screens */
+    .square-not-found {
+        width: 70%;
+        height: 320px;
+    }
+    .logo {
+        width: 75%;
+        height: auto;
+    }
+    .center-button {
+        width: 100px;
+        font-size: 9px;
+        bottom: 65px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 400px) { /* Extra small screens */
+    .square-not-found {
+        width: 80%;
+        height: 300px;
+    }
+    .logo {
+        width: 55%;
+        height: auto;
+    }
+    .center-button {
+        width: 90px;
+        font-size: 8px;
+        bottom: 75px;
+        right: 30px;
+    }
 }
