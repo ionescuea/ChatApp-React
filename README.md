@@ -4,6 +4,8 @@ A real-time chat app
 ## Description
 ChatApp-React is a real-time chat application built using React, allowing users to communicate with each other in real-time. The app features a simple and intuitive interface, making it easy for users to send and receive messages.
 
+There is already a list of users saved in the local storage, as the app has also a role based access setup. the list of pre-existent users can be accessed here [utilities/usersLS.js#originalUsers](utilities/usersLS.js#originalUsers).
+
 ## Live Demo
 You can try out the app live at [https://anotherchatapp.netlify.app/](https://anotherchatapp.netlify.app/).
 
