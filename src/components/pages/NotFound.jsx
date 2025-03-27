@@ -11,7 +11,7 @@ const NotFound = () => (
             <p className="not-found-text">
               Sorry, you don&apos;t have access to this page, yet...
             </p>
-            <img src="/logo.jpg" alt="Logo" className="logo img-fluid"></img>
+            <img src="/logo.jpg" alt="Logo" className="logo-not-found img-fluid"></img>
           </div>
           <div className="col-12 text-overlay">
             <Link to="/">
