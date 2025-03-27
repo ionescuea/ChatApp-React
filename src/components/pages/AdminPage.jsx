@@ -45,18 +45,18 @@ function AdminPage() {
     return (
         <section id="adminPage">
             <div className="admin container">
-                <div className="admin-row row gx-5">
+                <div className="admin-row row gx-2">
                     {storedUsers
                         .filter((user) => user.username !== currentUser)
                         .map((user) => (
-                            <div key={user.username} className="admin-row row gx-5">
-                                <div className="admin-card col-lg-4 col-sm-12">
+                            <div key={user.username} className="admin-row row gx-2 align-items-center">
+                                <div className="admin-card col-lg-4 col-md-6 col-sm-4 col-4">
                                     <p>{user.username}</p>
                                 </div>
-                                <div className="admin-card col-lg-4 col-sm-12">
+                                <div className="admin-card2 col-lg-4 d-lg-block d-none">
                                     <p>{user.email}</p>
                                 </div>
-                                <div className="col-lg-2 col-sm-6">
+                                <div className="col-lg-2 col-md-3 col-sm-4 col-4">
                                     <div className="form-check form-switch">
                                         <input
                                             className="form-check-input"
@@ -70,11 +70,11 @@ function AdminPage() {
                                         </label>
                                     </div>
                                 </div>
-                                <div className="col-lg-2 col-sm-6">
+                                <div className="col-lg-2 col-md-3 col-sm-4 col-4">
                                     <button
                                         type="button"
                                         className="btn btn-danger"
-                                        onClick={() => handleRemoveUser(user.username)} // Pass username instead of index
+                                        onClick={() => handleRemoveUser(user.username)}
                                     >
                                         Remove
                                     </button>

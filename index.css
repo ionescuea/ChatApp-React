@@ -1066,7 +1066,6 @@ form input {
 }
 
 /* AdminPage */
-
 #adminPage {
     display: flex;
     flex-direction: column;
@@ -1088,7 +1087,7 @@ form input {
     align-items: center;
 }
 
-.admin-card {
+.admin-card, .admin-card2 {
     background: var(--bg-light-silver);
     color: var(--text-color1);
     font-size: 16px;
@@ -1118,6 +1117,77 @@ form input {
     font-size: 16px;
     font-weight: bold;
     margin-left: 50px;
+}
+
+/* Large devices (lg) and below */
+@media (max-width: 991px) { 
+    .admin-card2 {
+        display: none; /* Hides the email column */
+    }
+    .form-check {
+        margin-left: 10px;
+    }
+    .btn-danger {
+        margin-left: 10px;
+    }
+}
+
+/* Medium devices (md) */
+@media (max-width: 767px) { 
+    .admin-row {
+        padding: 0px;
+    }
+    .admin-card {
+        width: 150px;
+        height: 25px;
+        margin: 10px;
+    }
+    .form-check-label {
+        font-size: 12px;
+    }
+    .btn-danger {
+        font-size: 12px;
+    }
+}
+
+/* Small devices (sm) */
+@media (max-width: 576px) { 
+    .admin-card {
+        width: 80px;
+        height: 25px;
+        margin: 10px;
+        padding: 5px;
+    }
+    .form-check {
+        margin-left: 5px;
+    }
+    .form-check-label {
+        font-size: 10px;
+    }
+    .btn-danger {
+        margin-left: 5px;
+        font-size: 8px;
+    }
+}
+
+/* Extra Small devices (xsm) */
+@media (max-width: 360px) { 
+    .admin-card {
+        width: 70px;
+        height: 25px;
+        margin: 5px;
+        padding: 3px;
+    }
+    .form-check {
+        margin-left: 3px;
+    }
+    .form-check-label {
+        font-size: 9px;
+    }
+    .btn-danger {
+        margin-left: 3px;
+        font-size: 7px;
+    }
 }
 
 /* Not found */
